@@ -43,6 +43,7 @@ public class RiseApp {
 	ExtentReports extent;
 	ExtentTest test;
 	TableLogger logger = new TableLogger();
+	ResusableMethods Reusablemethod = new ResusableMethods(Driver);
 	WebDriverWait wait;
 
 	@BeforeClass
@@ -65,8 +66,8 @@ public class RiseApp {
 		capabilities.setCapability("platformVersion", "13");
 		capabilities.setCapability("deviceName", "CPH2467");
 		capabilities.setCapability("udid", "97957054");
-		capabilities.setCapability("appPackage", "com.mosl.mobile.pilot");
-		capabilities.setCapability("appActivity", "mosl.supperfina.com.MainActivity");
+		capabilities.setCapability("appPackage", Commons.getGlobalPropertiesValue("Rise_app_package_pilot"));
+		capabilities.setCapability("appActivity", Commons.getGlobalPropertiesValue("Rise_app_activity"));
 		capabilities.setCapability("automationName", "UiAutomator2");
 		capabilities.setCapability("autoGrantPermissions", true);
 		capabilities.setCapability("noReset", true);
@@ -154,7 +155,11 @@ public class RiseApp {
 		IAP_CTA();
 		Bonds_CTA();
 		options_store();
-		Stock_basket_CTA();
+		Stock_basketonomix_CTA();
+		quantBasketCTA();
+		sectoralbasketCTA();
+		fundamentalBasketCTA();
+
 		Insurance_CTA();
 		FixedDeposit_CTA();
 		smallcase_CTA();
@@ -225,8 +230,10 @@ public class RiseApp {
 		try {
 			WebElement searchresult = wait.until(ExpectedConditions.visibilityOf(homepage.Globalsearchresult));
 			String resultsearch = searchresult.getDomAttribute("content-desc");
+			System.out.println("***********************" + resultsearch + "***********************");
 			List<String> splitresult = Arrays.asList(resultsearch.split("\\s+"));
 			String globalsearchresult = splitresult.get(1);
+			System.out.println("***********************" + globalsearchresult + "***********************");
 			globalsearchresult.equalsIgnoreCase(" YESBANK");
 			status = "Pass";
 			test.pass("Global search Result Passed");
@@ -831,14 +838,14 @@ public class RiseApp {
 		}
 	}
 
-	public void Stock_basket_CTA() {
+	public void Stock_basketonomix_CTA() {
 		test = extent.createTest("Homescreen Stock Basket button");
 		HomePage homepage = new HomePage(Driver);
 		long startTime = System.currentTimeMillis();
 		homepage.stockbasket.click();
 		try {
-			wait.until(ExpectedConditions.visibilityOf(homepage.researchideaequitytab));
-			homepage.researchideaequitytab.isDisplayed();
+			wait.until(ExpectedConditions.visibilityOf(homepage.basketonomix));
+			homepage.basketonomix.isDisplayed();
 			status = "Pass";
 			test.pass("Homescreen Stock Basket button Passed");
 		} catch (Exception e) {
@@ -847,13 +854,78 @@ public class RiseApp {
 			test.info(e.getMessage());
 		} finally {
 			long endTime = System.currentTimeMillis();
-			Driver.navigate().back();
 			logger.logTableRow("Homescreen Stock Basket button", status, endTime - startTime);
 		}
 	}
 
-	public void basket() {
+	public void quantBasketCTA() {
+		HomePage homepage = new HomePage(Driver);
+		ResusableMethods.verticalswipetillElement(Driver, homepage.closedbasket, 0, 5, 493, 1992, 489);
+		homepage.quantbasket.click();
+		long startTime = System.currentTimeMillis();
+		try {
+			wait.until(ExpectedConditions.visibilityOf(homepage.quantbasketassert));
+			homepage.quantbasketassert.isDisplayed();
+			status = "Pass";
+		} catch (Exception e) {
+			status = "Fail";
+		} finally {
+			long endTime = System.currentTimeMillis();
+			Driver.navigate().back();
+			logger.logTableRow("Homescreen Basketonomix quant basket", status, endTime - startTime);
+		}
+	}
 
+	public void sectoralbasketCTA() {
+		HomePage homepage = new HomePage(Driver);
+		homepage.sectoralbasket.click();
+		long startTime = System.currentTimeMillis();
+		try {
+			wait.until(ExpectedConditions.visibilityOf(homepage.sectoralbasketassert));
+			homepage.sectoralbasketassert.isDisplayed();
+			status = "Pass";
+		} catch (Exception e) {
+			status = "Fail";
+		} finally {
+			long endTime = System.currentTimeMillis();
+			Driver.navigate().back();
+			logger.logTableRow("Homescreen Basketonomix sectoral basket", status, endTime - startTime);
+		}
+	}
+
+	public void TechnicalBasketCTA() {
+		HomePage homepage = new HomePage(Driver);
+		homepage.technicalbasket.click();
+		long startTime = System.currentTimeMillis();
+		try {
+			wait.until(ExpectedConditions.visibilityOf(homepage.technicalbasketassert));
+			homepage.technicalbasketassert.isDisplayed();
+			status = "Pass";
+		} catch (Exception e) {
+			status = "Fail";
+		} finally {
+			long endTime = System.currentTimeMillis();
+			Driver.navigate().back();
+			logger.logTableRow("Homescreen Basketonomix technical basket", status, endTime - startTime);
+		}
+	}
+
+	public void fundamentalBasketCTA() {
+		HomePage homepage = new HomePage(Driver);
+		homepage.fundamentalbasket.click();
+		long startTime = System.currentTimeMillis();
+		try {
+			wait.until(ExpectedConditions.visibilityOf(homepage.fundamentalbasketassert));
+			homepage.fundamentalbasketassert.isDisplayed();
+			status = "Pass";
+		} catch (Exception e) {
+			status = "Fail";
+		} finally {
+			long endTime = System.currentTimeMillis();
+			Driver.navigate().back();
+			Driver.navigate().back();
+			logger.logTableRow("Homescreen Basketonomix fundamental basket", status, endTime - startTime);
+		}
 	}
 
 	public void TGS_CTA() {
@@ -954,6 +1026,7 @@ public class RiseApp {
 		long startTime = System.currentTimeMillis();
 		ResusableMethods.verticalswipetillElement(Driver, homepage.smallcasebutton, 0, 5, 470, 1200, 600);
 		homepage.smallcasebutton.click();
+		Thread.sleep(2000);
 		try {
 			wait.until(ExpectedConditions.visibilityOf(homepage.smallcasepage));
 			status = "Pass";
@@ -975,11 +1048,21 @@ public class RiseApp {
 		ResusableMethods.verticalswipetillElement(Driver, homepage.smallcasebutton, 0, 5, 470, 1788, 590);
 		homepage.tejimandibutton.click();
 		long startTime = System.currentTimeMillis();
-		ResusableMethods.test(Driver, wait, test, status, homepage.tejimandipage, "Homescreen Teji Mandi button");
-		long endTime = System.currentTimeMillis();
-		Driver.navigate().back();
-		logger.logTableRow("Homescreen Teji Mandi button", status, endTime - startTime);
-
+		try {
+			wait.until(ExpectedConditions.visibilityOf(homepage.tejimandipage));
+			homepage.tejimandipage.isDisplayed();
+			status = "Pass";
+			test.pass("Homescreen Teji Mandi button Passed");
+		} catch (Exception e) {
+			status = "Fail";
+			test.fail("Homescreen Teji Mandi button Failed");
+			test.info(e.getMessage());
+		} finally {
+			long endTime = System.currentTimeMillis();
+			Driver.navigate().back();
+			Thread.sleep(500);
+			logger.logTableRow("Homescreen Teji Mandi button", status, endTime - startTime);
+		}
 	}
 
 	public void MFHighReturns_CTA() throws InterruptedException {
@@ -1125,6 +1208,7 @@ public class RiseApp {
 		ResusableMethods.verticalswipetillElement(Driver, homepage.oneclicksip, 0, 8, 470, 1788, 600);
 		long startTime = System.currentTimeMillis();
 		homepage.ipoibutton.click();
+		Thread.sleep(500);
 		try {
 			wait.until(ExpectedConditions.visibilityOf(homepage.ipochildscreen));
 			homepage.ipochildscreen.isDisplayed();
@@ -1333,6 +1417,7 @@ public class RiseApp {
 		ResusableMethods.verticalswipetillElement(Driver, homepage.MOapibutton, 0, 8, 470, 1788, 600);
 		long startTime = System.currentTimeMillis();
 		homepage.margincalbutton.click();
+		Thread.sleep(1000);
 		try {
 			wait.until(ExpectedConditions.visibilityOf(homepage.margincalpage));
 			homepage.margincalpage.isDisplayed();
@@ -1627,10 +1712,10 @@ public class RiseApp {
 		long startTime = System.currentTimeMillis();
 		ResusableMethods.longpressElement(Driver, watchlist.scriptinwatchlist);
 		ResusableMethods.tapWithActions(Driver, 974, 955);
-
+		watchlist.savewatchlist.click();
 		try {
-			String scriptdeleted = watchlist.Addscript.getDomAttribute("content-desc");
-			scriptdeleted.equalsIgnoreCase("Add Scrip");
+			wait.until(ExpectedConditions.visibilityOf(watchlist.noscripsinwatchlist));
+			watchlist.noscripsinwatchlist.isDisplayed();
 			status = "Pass";
 			test.pass("Delete script from watchlist Passed");
 		} catch (Exception e) {
@@ -1669,10 +1754,8 @@ public class RiseApp {
 		test = extent.createTest("Profile asba switch");
 		ProfilePage profilepage = new ProfilePage(Driver);
 		HomePage homepage = new HomePage(Driver);
-
 		homepage.explorebottombar.click();
-
-		homepage.profileicon.click();
+		ResusableMethods.tapWithActions(Driver, 1010, 185);
 		profilepage.profiledetails.click();
 		profilepage.tradingaccountdetails.click();
 		long startTime = System.currentTimeMillis();
@@ -1687,9 +1770,6 @@ public class RiseApp {
 		} finally {
 			long endTime = System.currentTimeMillis();
 			Driver.navigate().back();
-
-			Driver.navigate().back();
-
 			logger.logTableRow("Profile asba switch", status, endTime - startTime);
 		}
 	}

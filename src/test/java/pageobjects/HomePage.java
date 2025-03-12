@@ -82,7 +82,7 @@ public class HomePage {
 	@FindBy(xpath = "//android.view.View[@content-desc=\"Equity\"]")
 	public WebElement researchideaequitytab;
 
-	@FindBy(xpath = "//android.widget.ImageView[contains(@content-desc,'Stock')]")
+	@FindBy(xpath = "//android.widget.ImageView[@content-desc=\" Basketonomix\"]")
 	public WebElement stockbasket;
 
 	@FindBy(xpath = "//android.widget.ImageView[@content-desc=\" IPO\"]")
@@ -249,4 +249,34 @@ public class HomePage {
 
 	@FindBy(xpath = "(//android.view.View)[9]")
 	public WebElement profileicon;
+	
+	@FindBy(xpath = "//android.widget.ImageView[@content-desc=\"Basketonomix\"]")
+	public WebElement basketonomix;
+	
+	@FindBy(xpath = "//android.view.View[@content-desc=\"Closed BTX\"]")
+	public WebElement closedbasket;
+	
+	@FindBy (xpath = "//android.widget.ImageView[@content-desc=\"Quant Basket\"]")
+	public WebElement quantbasket;
+	
+	@FindBy(xpath = "//android.view.View[contains(@content-desc,\"Quant Basket\")]")
+	public WebElement quantbasketassert;
+	
+	@FindBy(xpath = "//android.widget.ImageView[@content-desc=\"Sectoral Basket\"]")
+	public WebElement sectoralbasket;
+	
+	@FindBy(xpath = "//android.view.View[contains(@content-desc,\"Sectoral Basket\")]")
+	public WebElement sectoralbasketassert;
+	
+	@FindBy(xpath = "//android.widget.ImageView[@content-desc=\"Technical Basket\"]")
+	public WebElement technicalbasket;
+	
+	@FindBy(xpath = "//android.view.View[contain(@content-desc,\"Technical Basket\")]")
+	public WebElement technicalbasketassert;
+	
+	@FindBy(xpath = "//android.widget.ImageView[@content-desc=\"Fundamental Basket\"]")
+	public WebElement fundamentalbasket;
+	
+	@FindBy(xpath = "//android.view.View[contains(@content-desc,\"Fundamental Basket\")]")
+	public WebElement fundamentalbasketassert;
 }

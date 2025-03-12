@@ -82,4 +82,10 @@ public class Watchlist {
 	
 	@FindBy (xpath = "//android.view.View[@content-desc=\"WatchList 6\"]")
 	public WebElement watchlist;
+	
+	@FindBy(xpath = "//android.view.View[@content-desc=\"Save\"]")
+	public WebElement savewatchlist;
+	
+	@FindBy (xpath = "//android.view.View[@content-desc=\"No scrips in this watchlist\"]")
+	public WebElement noscripsinwatchlist;
 }

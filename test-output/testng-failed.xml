@@ -9,6 +9,7 @@
           <include name="Verify_user_kills_app"/>
           <include name="launchapp"/>
           <include name="App_Regression"/>
+          <include name="Verify_user_login_and_clicks_on_RDD"/>
           <include name="ExtentReportTearDown"/>
         </methods>
       </class> <!-- nadeem.RiseApp -->

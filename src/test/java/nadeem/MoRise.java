@@ -577,7 +577,6 @@ public class MoRise {
 		Reporter.log("</table>", true);
 	}
 
-	// application launch beforetest
 	@BeforeTest
 	public void Verify_user_launch_application() throws InterruptedException, IOException {
 		if ("RealDevice".equalsIgnoreCase(Commons.getGlobalPropertiesValue("Execution"))) {
@@ -632,7 +631,6 @@ public class MoRise {
 		}
 	}
 
-	// kill application after test
 	@AfterTest
 	public void verify_User_kills_app() {
 		if (Driver != null) {
