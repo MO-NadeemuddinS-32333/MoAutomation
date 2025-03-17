@@ -975,10 +975,21 @@ public class AppRegression {
 		ResusableMethods.verticalswipetillElement(Driver, homepage.smallcasebutton, 0, 5, 470, 1788, 590);
 		homepage.tejimandibutton.click();
 		long startTime = System.currentTimeMillis();
-		ResusableMethods.test(Driver, wait, test, status, homepage.tejimandipage, "Homescreen Teji Mandi button");
-		long endTime = System.currentTimeMillis();
-		Driver.navigate().back();
-		logger.logTableRow("Homescreen Teji Mandi button", status, endTime - startTime);
+		try {
+			wait.until(ExpectedConditions.visibilityOf(homepage.tejimandipage));
+			homepage.tejimandipage.isDisplayed();
+			status = "Pass";
+			test.pass("Homescreen Teji Mandi button Passed");
+		} catch (Exception e) {
+			status = "Fail";
+			test.fail("Homescreen Teji Mandi button Failed");
+			test.info(e.getMessage());
+		} finally {
+			long endTime = System.currentTimeMillis();
+			Driver.navigate().back();
+			Thread.sleep(500);
+			logger.logTableRow("Homescreen Teji Mandi button", status, endTime - startTime);
+		}
 
 	}
 
