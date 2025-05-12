@@ -3,16 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="nadeem.RiseApp">
+      <class name="nadeem.FamilyPortfolio">
         <methods>
-          <include name="ExtentReportSetUp"/>
           <include name="Verify_user_kills_app"/>
+          <include name="familyportfoliosanity"/>
           <include name="launchapp"/>
-          <include name="App_Regression"/>
-          <include name="Verify_user_login_and_clicks_on_RDD"/>
-          <include name="ExtentReportTearDown"/>
         </methods>
-      </class> <!-- nadeem.RiseApp -->
+      </class> <!-- nadeem.FamilyPortfolio -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

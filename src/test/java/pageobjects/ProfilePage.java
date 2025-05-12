@@ -13,7 +13,52 @@ public class ProfilePage {
 		this.Driver = Driver;
 		PageFactory.initElements(Driver, this);
 	}
+	
+	@FindBy (xpath = "//android.view.View[contains(@text,'All')]")
+	public WebElement contractnotescreen;
+	
+	@FindBy (xpath = "//android.view.View[@content-desc=\"Contract Note\"]")
+	public WebElement contractnotebutton;
+	
+	@FindBy (xpath = "//android.view.View[contains(@text,'Equity')]")
+	public WebElement pnlreportscreen;
+	
+	@FindBy(xpath = "//android.view.View[@content-desc=\"P&L Report\"]")
+	public WebElement  plreportbutton;
+	
+	@FindBy(xpath = "//android.view.View[@text='Trade History']")
+	public WebElement tradehistoryscreen;
+	
+	@FindBy(xpath = "//android.widget.TextView[@text='Trade History']")
+	public WebElement tradehistorybutton;
+	
+	@FindBy(xpath = "//android.view.View[@text='Ledger Report']")
+	public WebElement ledgerreportscreen;
+	
+	@FindBy (xpath = "//android.widget.TextView[@text='Ledger Report']")
+	public WebElement ledgerreportbutton;
 
+	@FindBy (xpath = "//android.widget.TextView[@text='Check Reports Status']")
+	public WebElement checkreportstatusbutton;
+	
+	@FindBy (xpath = "//android.widget.TextView[@text='Transactions Summary']")
+	public WebElement capitalgains;
+	
+	@FindBy (xpath = "//android.widget.TextView[@text='Transactions Summary']")
+	public WebElement transactionsummarybutton;
+	
+	@FindBy (xpath = "//android.view.View[@content-desc=\"View Status\"]")
+	public WebElement viewstatusbutton;
+	
+	@FindBy (xpath = "//android.view.View[@content-desc=\"Get Reports\"]")
+	public WebElement getreportsbutton;
+	
+	@FindBy(xpath = "//android.widget.TextView[@text='Holding Summary - All Assets']")
+	public WebElement ReportsHoldingsummaryallassets;
+	
+	@FindBy (xpath = "//android.view.View[contains(@text,'All')]")
+	public WebElement allbuttoncheckreportstatus;
+	
 	@FindBy(xpath = "//android.view.View[contains(@content-desc,'Client ID: Y05120')]")
 	public WebElement profiledetails;
 

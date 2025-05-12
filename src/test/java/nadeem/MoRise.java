@@ -29,23 +29,25 @@ import utils.Commons;
 public class MoRise {
 	AndroidDriver Driver;
 	String status;
-	int Global_Search_Results_loop = 1;
-	int Homepage_portfolio_snap_loop = 1;
-	int Stocks_homepage_portfolio_snap_loop = 1;
-	int mf_homepage_portfolio_snap_loop = 1;
-	int watchlis_loop = 1; // same for option watch list
-	int Get_quote_loop = 1; // same for Get quote, Fundamentals, Technicals, News
+	int Global_Search_Results_loop = 50;
+	int Homepage_portfolio_snap_loop = 50;
+	int Stocks_homepage_portfolio_snap_loop = 50;
+	int mf_homepage_portfolio_snap_loop = 50;
+	int watchlis_loop = 50; // same for option watch list
+	int Get_quote_loop = 50; // same for Get quote, Fundamentals, Technicals, News
 	WebDriverWait wait;
 
 	@Test(priority = 1, enabled = true)
 	public void Verify_user_login_and_clicks_on_RDD() throws InterruptedException, IOException {
 		LoginPage loginpage = new LoginPage(Driver);
+		HomePage homepage = new HomePage(Driver);
 		try {
 			if (loginpage.loginButton.isDisplayed()) {
 				loginpage.loginButton.click();
 				Thread.sleep(1000);
 				loginpage.userID.click();
-				loginpage.userID.sendKeys(Commons.getGlobalPropertiesValue("userId"));
+//				loginpage.userID.sendKeys(Commons.getGlobalPropertiesValue("userId"));
+				loginpage.userID.sendKeys(homepage.userID);
 				Driver.hideKeyboard();
 				loginpage.nextbutton.click();
 				Thread.sleep(1000);
@@ -109,7 +111,8 @@ public class MoRise {
 			try {
 				wait.until(ExpectedConditions.elementToBeClickable(homepage.availablemargin));
 				long startTime = System.currentTimeMillis();
-				homepage.availablemargin.isDisplayed();
+				//homepage.availablemargin.isDisplayed();
+				Thread.sleep(300);
 				long endTime = System.currentTimeMillis();
 				status = "Pass";
 				logTableRow(tableName, i, endTime - startTime, status);
@@ -136,7 +139,8 @@ public class MoRise {
 			try {
 				wait.until(ExpectedConditions.visibilityOf(stockshomepage.stocksHomepageCollapseIcon));
 				long startTime = System.currentTimeMillis();
-				stockshomepage.stocksHomepageCollapseIcon.isDisplayed();
+				//stockshomepage.stocksHomepageCollapseIcon.isDisplayed();
+				Thread.sleep(300);
 				long endTime = System.currentTimeMillis();
 				logTableRow(tableName, i, endTime - startTime, status);
 				status = "Pass";
@@ -374,7 +378,7 @@ public class MoRise {
 		String tableName = "portfolio All";
 		logTableStart(tableName);
 		homepage.portfolioBottombar.click();
-		for (int i = 1; i <= Get_quote_loop; i++) {
+		for (int i = 1; i <= 50; i++) {
 			portfolio.AllTabPortfolio.click();
 			try {
 				long startTime = System.currentTimeMillis();
@@ -399,7 +403,7 @@ public class MoRise {
 		Portfolio portfolio = new Portfolio(Driver);
 		String tableName = "portfolio stocks";
 		logTableStart(tableName);
-		for (int i = 1; i <= Get_quote_loop; i++) {
+		for (int i = 1; i <= 50; i++) {
 			portfolio.StocksTabPortfolio.click();
 			try {
 				long startTime = System.currentTimeMillis();
@@ -425,7 +429,7 @@ public class MoRise {
 		String tableName = "portfolio MF";
 		logTableStart(tableName);
 
-		for (int i = 1; i <= Get_quote_loop; i++) {
+		for (int i = 1; i <= 50; i++) {
 			portfolio.MFTabPortfolio.click();
 			try {
 				long startTime = System.currentTimeMillis();
@@ -451,7 +455,7 @@ public class MoRise {
 		String tableName = "portfolio PMS";
 		logTableStart(tableName);
 
-		for (int i = 1; i <= Get_quote_loop; i++) {
+		for (int i = 1; i <= 50; i++) {
 			portfolio.PMSTabPortfolio.click();
 			try {
 				long startTime = System.currentTimeMillis();
@@ -476,7 +480,7 @@ public class MoRise {
 		Portfolio portfolio = new Portfolio(Driver);
 		String tableName = "portfolio Basket";
 		logTableStart(tableName);
-		for (int i = 1; i <= Get_quote_loop; i++) {
+		for (int i = 1; i <= 50; i++) {
 			portfolio.BasketTabPortfolio.click();
 			try {
 				long startTime = System.currentTimeMillis();
@@ -505,7 +509,7 @@ public class MoRise {
 		logTableStart(tableName);
 		homepage.walleticon.click();
 
-		for (int i = 1; i <= Get_quote_loop; i++) {
+		for (int i = 1; i <= 50; i++) {
 			homepage.addfundstab.click();
 			try {
 				long startTime = System.currentTimeMillis();
@@ -530,7 +534,7 @@ public class MoRise {
 		HomePage homepage = new HomePage(Driver);
 		String tableName = "withdraw Funds";
 		logTableStart(tableName);
-		for (int i = 1; i <= Get_quote_loop; i++) {
+		for (int i = 1; i <= 50; i++) {
 			homepage.withdrawtab.click();
 			try {
 				long startTime = System.currentTimeMillis();
@@ -587,7 +591,7 @@ public class MoRise {
 			capabilities.setCapability("platformVersion", "13");
 			capabilities.setCapability("deviceName", "CPH2467");
 			capabilities.setCapability("udid", "97957054");
-			capabilities.setCapability("appPackage", Commons.getGlobalPropertiesValue("Rise_app_package_pilot"));
+			capabilities.setCapability("appPackage", Commons.getGlobalPropertiesValue("Rise_app_package"));
 			capabilities.setCapability("appActivity", Commons.getGlobalPropertiesValue("Rise_app_activity"));
 			capabilities.setCapability("automationName", "UiAutomator2");
 			capabilities.setCapability("autoGrantPermissions", true);

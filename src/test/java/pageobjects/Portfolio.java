@@ -14,6 +14,36 @@ public class Portfolio {
 		PageFactory.initElements(Driver, this);
 	}
 
+	@FindBy (xpath = "//android.view.View[@content-desc=\"Overall P&L\"]")
+	public WebElement btxpage;
+	
+	@FindBy(xpath = "//android.view.View[@content-desc=\"Tap on\"]")
+	public WebElement portfoliomfpage;
+	
+	@FindBy(xpath = "//android.view.View[@content-desc=\"IMRAN MOHD RAZA KHAN (HOF) (EMUM187598)\"]")
+	public WebElement imranIDportfolio;
+	
+	@FindBy(xpath = "//android.view.View[@content-desc=\"Net Worth\"]")
+	public WebElement abhinavidalltab;
+	
+	@FindBy(xpath = "//android.view.View[@content-desc=\"ABHINAV AGARWAL (T025503)\"]")
+	public WebElement AbhinavIDportfolio;
+	
+	@FindBy (xpath = "//android.view.View[contains(@content-desc,'Scrip')]")
+	public WebElement imranportfoliostocks;
+	
+	@FindBy(xpath = "//android.view.View[@content-desc=\"Portfolio News\"]")
+	public WebElement portfolioNews;
+	
+	@FindBy (xpath = "//android.view.View[@content-desc=\"IMRAN MOHD RAZA KHAN (HOF) (EMUM187598)\"]")
+	public WebElement HOFname;
+	
+	@FindBy (xpath = "//android.view.View[@content-desc=\"FAMILY SUMMARY\"]")
+	public WebElement familySummaryTab;
+	
+	@FindBy (xpath = "//android.widget.ImageView[@content-desc=\"Family Portfolio\"]")
+	public WebElement familyPortfolioIcon;
+	
 	@FindBy(xpath = "//android.view.View[contains(@content-desc,'All')]")
 	public WebElement AllTabPortfolio;
 

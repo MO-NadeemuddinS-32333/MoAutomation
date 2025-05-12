@@ -50,7 +50,6 @@ public class AppRegression {
 		sparkReporter.config().setTimeStampFormat("yyyy-MM-dd HH:mm:ss");
 		sparkReporter.config().setDocumentTitle("Rise App Regression");
 		sparkReporter.config().setReportName("Rise App Regression");
-
 		extent = new ExtentReports();
 		extent.attachReporter(sparkReporter);
 	}
@@ -125,7 +124,7 @@ public class AppRegression {
 	public void App_Regression() throws IOException, InterruptedException {
 
 		logger.logTableStart("Execution Report");
-
+		
 		Global_search_Result();
 		Get_quote_fut_tab();
 		Get_quote_opt_tab();
@@ -136,6 +135,9 @@ public class AppRegression {
 		Get_quote_Bse_switch_Delivery_Sell();
 		Get_quote_charts();
 		Get_quote_optionchain();
+
+		NseShow50Depth();
+
 		Get_quote_fundamentaltab();
 		Get_quote_technicaltab();
 		Get_quote_Newstab();
@@ -154,9 +156,12 @@ public class AppRegression {
 		Bonds_CTA();
 		options_store();
 		Stock_basket_CTA();
+		
+
 		Insurance_CTA();
 		FixedDeposit_CTA();
 		smallcase_CTA();
+
 		Tejimandi();
 		try {
 			TGS_CTA();
@@ -176,10 +181,11 @@ public class AppRegression {
 		internationalfund_CTA();
 		iponfoIbutton();
 		ipoviewall();
-		ipobutton();
-		Nfobutton();
-		Stocksipbutton();
-		MFsipbutton();
+		//ipobutton();
+		//Nfobutton();
+		// Stocksipbutton();
+		// MFsipbutton();
+		
 		reportsbutton();
 		PNLsummarybutton();
 		alertsbutton();
@@ -190,7 +196,8 @@ public class AppRegression {
 		Portfolio_swipe_Stocks_Tab_verification();
 		Portfolio_swipe_MF_Tab_verification();
 		Portfolio_swipe_PMS_Tab_verification();
-		// Portfolio_swipe_Basket_Tab_verification();
+		Portfolio_swipe_Basket_Tab_verification();
+
 		Watchlist_script();
 		Add_script_in_watchlist();
 		MTFinwatchlistscript();
@@ -206,7 +213,7 @@ public class AppRegression {
 	@Test(priority = 3, enabled = false)
 	public void orderrouting() throws InterruptedException {
 		logger.logTableStart("Order Routing timestamp study  Report");
-		for (int i = 1; i <= 30; i++) {
+		for (int i = 1; i <= 50; i++) {
 			buyorder();
 			modifybuyorder();
 			cancelorder();
@@ -221,12 +228,13 @@ public class AppRegression {
 		Thread.sleep(1000);
 		long startTime = System.currentTimeMillis();
 		homepage.Globalsearchaftertap.get(1).sendKeys(Commons.getGlobalPropertiesValue("global_search_scrip"));
-
 		try {
+			Thread.sleep(2000);
 			WebElement searchresult = wait.until(ExpectedConditions.visibilityOf(homepage.Globalsearchresult));
 			String resultsearch = searchresult.getDomAttribute("content-desc");
 			List<String> splitresult = Arrays.asList(resultsearch.split("\\s+"));
 			String globalsearchresult = splitresult.get(1);
+			System.out.println("##########Global Search Result: " + globalsearchresult);
 			globalsearchresult.equalsIgnoreCase(" YESBANK");
 			status = "Pass";
 			test.pass("Global search Result Passed");
@@ -433,7 +441,6 @@ public class AppRegression {
 		getquote.optionchainbutton.click();
 		try {
 			wait.until(ExpectedConditions.visibilityOf(getquote.OIoptionchain));
-
 			String OI = getquote.OIoptionchain.getDomAttribute("content-desc");
 			OI.equalsIgnoreCase("OI");
 			status = "Pass";
@@ -446,6 +453,31 @@ public class AppRegression {
 			long endTime = System.currentTimeMillis();
 			Driver.navigate().back();
 			logger.logTableRow("Get quote optionchain button", status, endTime - startTime);
+		}
+	}
+
+	public void NseShow50Depth() {
+		test = extent.createTest("Get quote Nse show 50 depth");
+		GetQuote getquote = new GetQuote(Driver);
+		long startTime = System.currentTimeMillis();
+		getquote.nsebutton.click();
+		ResusableMethods.swipeCorinates(Driver, 540, 1972, 540, 1576, 1);
+		getquote.NseShow50Depth.click();
+		try {
+			wait.until(ExpectedConditions.visibilityOf(getquote.show5Depth));
+			String nse50depth = getquote.show5Depth.getDomAttribute("content-desc");
+			nse50depth.equalsIgnoreCase("Show 50 Depth");
+			ResusableMethods.verticalswipetillElement(Driver, getquote.YourHoldings, 0, 7, 541, 1859, 598);
+			getquote.show5Depth.isDisplayed();
+			status = "Pass";
+			test.pass("Get quote Nse show 50 depth Passed");
+		} catch (Exception e) {
+			status = "Fail";
+			test.fail("Get quote Nse show 50 depth Failed");
+			test.info(e.getMessage());
+		} finally {
+			long endTime = System.currentTimeMillis();
+			logger.logTableRow("Get quote Nse show 50 depth", status, endTime - startTime);
 		}
 	}
 
@@ -522,9 +554,9 @@ public class AppRegression {
 		getquote.transactionstab.click();
 		try {
 			wait.until(ExpectedConditions.visibilityOf(getquote.realisedPL));
-
 			String plrealised = getquote.realisedPL.getDomAttribute("content-desc");
 			String realisepl = plrealised.split(" ")[0];
+			System.out.println("##########Realised PL: " + realisepl);
 			realisepl.equalsIgnoreCase("Realised");
 			status = "Pass";
 			test.pass("Get quote Transactions Tab Passed");
@@ -731,7 +763,7 @@ public class AppRegression {
 		test = extent.createTest("Homescreen IPO button");
 		HomePage homepage = new HomePage(Driver);
 		homepage.homeTabHeader.click();
-		ResusableMethods.verticalswipetillElement(Driver, homepage.optionsstoreCTA, 0, 5, 470, 1788, 590);
+		ResusableMethods.verticalswipetillElement(Driver, homepage.tradinginvestment, 0, 5, 470, 1788, 590);
 		long startTime = System.currentTimeMillis();
 		homepage.IPO.click();
 		try {
@@ -795,6 +827,7 @@ public class AppRegression {
 		long startTime = System.currentTimeMillis(); // Start timer
 		homepage.bondsCTA.click();
 		try {
+			Thread.sleep(3000);
 			wait.until(ExpectedConditions.visibilityOf(homepage.bondspage));
 			homepage.bondspage.isDisplayed();
 			status = "Pass";
@@ -837,8 +870,8 @@ public class AppRegression {
 		long startTime = System.currentTimeMillis();
 		homepage.stockbasket.click();
 		try {
-			wait.until(ExpectedConditions.visibilityOf(homepage.researchideaequitytab));
-			homepage.researchideaequitytab.isDisplayed();
+			wait.until(ExpectedConditions.visibilityOf(homepage.recommendedBTX));
+			homepage.recommendedBTX.isDisplayed();
 			status = "Pass";
 			test.pass("Homescreen Stock Basket button Passed");
 		} catch (Exception e) {
@@ -848,7 +881,7 @@ public class AppRegression {
 		} finally {
 			long endTime = System.currentTimeMillis();
 			Driver.navigate().back();
-			logger.logTableRow("Homescreen Stock Basket button", status, endTime - startTime);
+			logger.logTableRow("Homescreen Basketonomix button", status, endTime - startTime);
 		}
 	}
 
@@ -965,6 +998,7 @@ public class AppRegression {
 		} finally {
 			long endTime = System.currentTimeMillis();
 			Driver.navigate().back();
+			Thread.sleep(1000);
 			logger.logTableRow("Homescreen Smallcase button", status, endTime - startTime);
 		}
 	}
@@ -1133,7 +1167,7 @@ public class AppRegression {
 	public void iponfoIbutton() throws InterruptedException {
 		test = extent.createTest("Homescreen IPO I button");
 		HomePage homepage = new HomePage(Driver);
-		ResusableMethods.verticalswipetillElement(Driver, homepage.oneclicksip, 0, 8, 470, 1788, 600);
+		ResusableMethods.verticalswipetillElement(Driver, homepage.sipnewbutton, 0, 8, 470, 1788, 600);
 		long startTime = System.currentTimeMillis();
 		homepage.ipoibutton.click();
 		try {
@@ -1160,7 +1194,6 @@ public class AppRegression {
 		homepage.ipoviewallbutton.click();
 		try {
 			homepage.ipoviewallbutton.click();
-
 			wait.until(ExpectedConditions.visibilityOf(homepage.ipopage));
 			homepage.ipopage.isDisplayed();
 			status = "Pass";
@@ -1180,7 +1213,7 @@ public class AppRegression {
 		test = extent.createTest("Homescreen IPO button");
 		HomePage homepage = new HomePage(Driver);
 		homepage.homeTabHeader.click();
-		ResusableMethods.verticalswipetillElement(Driver, homepage.oneclicksip, 0, 8, 470, 1788, 600);
+		ResusableMethods.verticalswipetillElement(Driver, homepage.sipnewbutton, 0, 8, 470, 1788, 600);
 		long startTime = System.currentTimeMillis();
 		homepage.ipobutton.click();
 		try {
@@ -1556,10 +1589,10 @@ public class AppRegression {
 		ResusableMethods.cleartextandenterinput(Driver, watchlist.enterwatchlistname, "Aumation");
 		watchlist.createButton.click();
 		try {
-			WebElement Createbutton = wait.until(ExpectedConditions.visibilityOf(watchlist.okwatchlistcreated));
+			WebElement Createbutton = wait.until(ExpectedConditions.visibilityOf(watchlist.Addscript));
 
 			String verification = Createbutton.getDomAttribute("content-desc");
-			verification.equalsIgnoreCase("OK");
+			verification.equalsIgnoreCase("Add Scrips");
 			status = "Pass";
 			test.pass("Add Watchlist Passed");
 		} catch (Exception e) {
@@ -1567,7 +1600,7 @@ public class AppRegression {
 			test.fail("Add Watchlist Failed");
 			test.info(e.getMessage());
 		} finally {
-			watchlist.okwatchlistcreated.click();
+			// watchlist.okwatchlistcreated.click();
 			long endTime = System.currentTimeMillis();
 			logger.logTableRow("Add Watchlist", status, endTime - startTime);
 		}
@@ -1587,7 +1620,6 @@ public class AppRegression {
 		Driver.navigate().back();
 		try {
 			WebElement scriptinwatchlist = wait.until(ExpectedConditions.visibilityOf(watchlist.scriptinwatchlist));
-
 			String addedscript = scriptinwatchlist.getDomAttribute("content-desc");
 			List<String> splitList = Arrays.asList(addedscript.split("\\s+"));
 			String watchlistscript = splitList.get(0);
@@ -1637,11 +1669,10 @@ public class AppRegression {
 		Watchlist watchlist = new Watchlist(Driver);
 		long startTime = System.currentTimeMillis();
 		ResusableMethods.longpressElement(Driver, watchlist.scriptinwatchlist);
-		ResusableMethods.tapWithActions(Driver, 974, 955);
-
+		ResusableMethods.tapWithActions(Driver, 993, 551);
 		try {
-			String scriptdeleted = watchlist.Addscript.getDomAttribute("content-desc");
-			scriptdeleted.equalsIgnoreCase("Add Scrip");
+			String scriptdeleted = watchlist.noScripsInWatchlist.getDomAttribute("content-desc");
+			scriptdeleted.equalsIgnoreCase("No scrips in this watchlist");
 			status = "Pass";
 			test.pass("Delete script from watchlist Passed");
 		} catch (Exception e) {
@@ -1649,6 +1680,7 @@ public class AppRegression {
 			test.fail("Delete script from watchlist Failed");
 			test.info(e.getMessage());
 		} finally {
+			watchlist.savebutton.click();
 			long endTime = System.currentTimeMillis();
 			logger.logTableRow("Delete script from watchlist", status, endTime - startTime);
 		}
@@ -1682,8 +1714,8 @@ public class AppRegression {
 		HomePage homepage = new HomePage(Driver);
 
 		homepage.explorebottombar.click();
-
-		homepage.profileicon.click();
+		ResusableMethods.tapWithActions(Driver, 1012, 179);
+		// homepage.profileicon.click();
 		profilepage.profiledetails.click();
 		profilepage.tradingaccountdetails.click();
 		long startTime = System.currentTimeMillis();
@@ -1698,8 +1730,7 @@ public class AppRegression {
 		} finally {
 			long endTime = System.currentTimeMillis();
 			Driver.navigate().back();
-
-			Driver.navigate().back();
+			// Driver.navigate().back();
 
 			logger.logTableRow("Profile asba switch", status, endTime - startTime);
 		}

@@ -14,6 +14,9 @@ public class Watchlist {
 		PageFactory.initElements(Driver, this);
 	}
 
+	@FindBy(xpath = "//android.view.View[@content-desc=\"No scrips in this watchlist\"]")
+	public WebElement noScripsInWatchlist;
+
 	@FindBy(xpath = "//android.view.View[@content-desc=' + Add']")
 	public WebElement AddButton;
 
@@ -26,7 +29,7 @@ public class Watchlist {
 	@FindBy(xpath = "//android.view.View[@content-desc=\"OK\"]")
 	public WebElement okwatchlistcreated;
 
-	@FindBy(xpath = "//android.widget.ImageView[@content-desc=\"Add Scrip\"]")
+	@FindBy(xpath = "//android.widget.Button[@content-desc=\"Add Scrips\"]")
 	public WebElement Addscript;
 
 	@FindBy(xpath = "(//android.widget.ImageView)[3]")
@@ -53,7 +56,7 @@ public class Watchlist {
 	@FindBy(xpath = "//android.view.View[@content-desc=\"Save\"]")
 	public WebElement savebutton;
 
-	@FindBy(xpath = "//android.widget.ImageView[contains(@content-desc,'Aumation')]/android.view.View[2]")
+	@FindBy(xpath = "//android.view.View[contains(@content-desc,'Aumation')]/android.widget.ImageView[3]")
 	public WebElement deleteicon;
 
 	@FindBy(xpath = "//android.widget.ImageView[@content-desc=\" Smallcase\"]")
@@ -79,13 +82,13 @@ public class Watchlist {
 
 	@FindBy(xpath = "//android.widget.ImageView[@class='android.widget.ImageView' and @package='com.mosl.mobile' and @enabled='true' and @clickable='true' and @index='3']")
 	public WebElement walleticon;
-	
-	@FindBy (xpath = "//android.view.View[@content-desc=\"WatchList 6\"]")
+
+	@FindBy(xpath = "//android.view.View[@content-desc=\"WatchList 6\"]")
 	public WebElement watchlist;
-	
+
 	@FindBy(xpath = "//android.view.View[@content-desc=\"Save\"]")
 	public WebElement savewatchlist;
-	
-	@FindBy (xpath = "//android.view.View[@content-desc=\"No scrips in this watchlist\"]")
-	public WebElement noscripsinwatchlist;
+
+	@FindBy (xpath = "//android.view.View[@content-desc=\"Save\"]")
+	public WebElement saveButton;
 }
