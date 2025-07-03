@@ -10,6 +10,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import org.testng.annotations.BeforeTest;
@@ -35,7 +36,7 @@ public class bcastTest {
 		capabilities.setCapability("platformVersion", "13");
 		capabilities.setCapability("deviceName", "CPH2467");
 		capabilities.setCapability("udid", "97957054");
-		capabilities.setCapability("appPackage", Commons.getGlobalPropertiesValue("Rise_app_package_pilot"));
+		capabilities.setCapability("appPackage", Commons.getGlobalPropertiesValue("Rise_app_package"));
 		capabilities.setCapability("appActivity", Commons.getGlobalPropertiesValue("Rise_app_activity"));
 		capabilities.setCapability("automationName", "UiAutomator2");
 		capabilities.setCapability("autoGrantPermissions", true);
@@ -49,7 +50,7 @@ public class bcastTest {
 		Thread.sleep(5000);
 	}
 
-	@Test(priority = 1)
+	@Test(priority = 1, enabled = true)
 	public void Verify_user_login_and_clicks_on_RDD() throws InterruptedException, IOException {
 
 		LoginPage loginpage = new LoginPage(Driver);
@@ -85,13 +86,14 @@ public class bcastTest {
 		}
 	}
 
-	@Test
-	public void bcastTestNifty50() {
+	@Test(priority = 2, enabled = true)
+	public void bcastTestNifty50() throws InterruptedException {
 		HomePage homepage = new HomePage(Driver);
 		initializeHtmlTable();
 		int updateCount = 0;
 
 		while (updateCount < 4) {
+			wait.until(ExpectedConditions.visibilityOf(homepage.nifty50));
 			String bcast = homepage.nifty50.getDomAttribute("content-desc");
 			List<String> splitresult = Arrays.asList(bcast.split("\\s+"));
 			String bcastValue = splitresult.get(2);

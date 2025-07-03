@@ -117,17 +117,16 @@ public class AppRegression {
 			test.pass("Login completed");
 			Thread.sleep(5000);
 		}
-//		test.fail("Login Failed");
 	}
 
 	@Test(priority = 2, enabled = true)
 	public void App_Regression() throws IOException, InterruptedException {
 
 		logger.logTableStart("Execution Report");
-		
+
 		Global_search_Result();
-		Get_quote_fut_tab();
-		Get_quote_opt_tab();
+		// Get_quote_fut_tab();
+		// Get_quote_opt_tab();
 		Get_quote_cash_tab();
 		Get_quote_Nse_switch_Delivery_buy();
 		Get_quote_Nse_switch_Delivery_Sell();
@@ -156,7 +155,6 @@ public class AppRegression {
 		Bonds_CTA();
 		options_store();
 		Stock_basket_CTA();
-		
 
 		Insurance_CTA();
 		FixedDeposit_CTA();
@@ -181,11 +179,11 @@ public class AppRegression {
 		internationalfund_CTA();
 		iponfoIbutton();
 		ipoviewall();
-		//ipobutton();
-		//Nfobutton();
+		// ipobutton();
+		// Nfobutton();
 		// Stocksipbutton();
 		// MFsipbutton();
-		
+
 		reportsbutton();
 		PNLsummarybutton();
 		alertsbutton();
@@ -324,6 +322,7 @@ public class AppRegression {
 		GetQuote getquote = new GetQuote(Driver);
 		OrderForm orderform = new OrderForm(Driver);
 		long startTime = System.currentTimeMillis();
+		getquote.cashtab.click();
 		getquote.nsebutton.click();
 		getquote.BuyButton.click();
 		try {
@@ -510,7 +509,6 @@ public class AppRegression {
 		getquote.technicaltab.click();
 		try {
 			wait.until(ExpectedConditions.visibilityOf(getquote.deliveryvolume));
-
 			String delivery = getquote.deliveryvolume.getDomAttribute("content-desc");
 			delivery.equalsIgnoreCase("Delivery & Volume");
 			status = "Pass";
@@ -584,7 +582,9 @@ public class AppRegression {
 			String amount = orderform.investamount.getDomAttribute("content-desc");
 			String investamount = amount.substring(12, 14);
 			String NseLTP = orderform.NseSwitch.getDomAttribute("content-desc");
+			System.out.println(NseLTP);
 			String LTP = NseLTP.substring(5, 7);
+			System.out.println(LTP);
 			investamount.equalsIgnoreCase(LTP);
 			status = "Pass";
 			test.pass("Order Form quantity toggle Passed");

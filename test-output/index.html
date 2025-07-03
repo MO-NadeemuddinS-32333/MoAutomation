@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-failed">Default suite</span>
+              <span class="suite-name border-passed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\nadeemuddinsayed\AppData\Local\Temp\testng-eclipse-2084266125\testng-customsuite.xml</span>
+                    <span>C:\Users\nadeemuddinsayed\AppData\Local\Temp\testng-eclipse-1434400504\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,21 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
-                  </li>
-                  <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
-                    </span>
-                    <div class="method-list-content failed suite-Default_suite">
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="nadeem.FamilyPortfolio" class="method navigator-link" hash-for-method="familyportfoliosanity">familyportfoliosanity</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-Default_suite -->
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -117,7 +103,12 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="nadeem.FamilyPortfolio" class="method navigator-link" hash-for-method="Verify_user_login_and_clicks_on_RDD">Verify_user_login_and_clicks_on_RDD</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="nadeem.AppRegressionII" class="method navigator-link" hash-for-method="Verify_user_login_and_clicks_on_RDD">Verify_user_login_and_clicks_on_RDD</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="nadeem.AppRegressionII" class="method navigator-link" hash-for-method="mainMethod">mainMethod</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -132,83 +123,10 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-failed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">nadeem.FamilyPortfolio</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="familyportfoliosanity">
-                  </a> <!-- familyportfoliosanity -->
-                  <span class="method-name">familyportfoliosanity</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: &apos;4.12.0&apos;, revision: &apos;249f2a7d1b*&apos;
-System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.11&apos;
-Driver info: io.appium.java_client.android.AndroidDriver
-Command: [c195db9d-ddf6-4a2b-88e3-c22eabb66e72, findElement {using=xpath, value=//android.view.View[contains(@content-desc,&apos;BTX&apos;)]}]
-Capabilities {appium:appActivity: mosl.supperfina.com.MainAct..., appium:appPackage: com.mosl.mobile.pilot, appium:autoGrantPermissions: true, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: mosl.supperfina.com.MainAct..., appPackage: com.mosl.mobile.pilot, autoGrantPermissions: true, automationName: UiAutomator2, deviceName: CPH2467, noReset: true, platformName: ANDROID, platformVersion: 13, udid: 97957054}, appium:deviceApiLevel: 33, appium:deviceManufacturer: OnePlus, appium:deviceModel: CPH2467, appium:deviceName: 97957054, appium:deviceScreenDensity: 408, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: 97957054, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:noReset: true, appium:pixelRatio: 2.55, appium:platformVersion: 13, appium:statBarHeight: 107, appium:takesScreenshot: true, appium:udid: 97957054, appium:viewportRect: {height: 2074, left: 0, top: 107, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
-Session ID: c195db9d-ddf6-4a2b-88e3-c22eabb66e72
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
-	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at jdk.proxy2/jdk.proxy2.$Proxy15.click(Unknown Source)
-	at nadeem.FamilyPortfolio.abhinavIDBtxTab(FamilyPortfolio.java:213)
-	at nadeem.FamilyPortfolio.familyportfoliosanity(FamilyPortfolio.java:105)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.testng.TestRunner.privateRun(TestRunner.java:741)
-	at org.testng.TestRunner.run(TestRunner.java:616)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-failed -->
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">nadeem.FamilyPortfolio</span>
+              <span class="class-name">nadeem.AppRegressionII</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
@@ -218,12 +136,19 @@ Session ID: c195db9d-ddf6-4a2b-88e3-c22eabb66e72
                   <span class="method-name">Verify_user_login_and_clicks_on_RDD</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="mainMethod">
+                  </a> <!-- mainMethod -->
+                  <span class="method-name">mainMethod</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Default_suite-class-passed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\nadeemuddinsayed\AppData\Local\Temp\testng-eclipse-2084266125\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\nadeemuddinsayed\AppData\Local\Temp\testng-eclipse-1434400504\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -232,7 +157,7 @@ Session ID: c195db9d-ddf6-4a2b-88e3-c22eabb66e72
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;nadeem.FamilyPortfolio&quot;/&gt;
+      &lt;class name=&quot;nadeem.AppRegressionII&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -274,18 +199,18 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'familyportfoliosanity')
-data.setCell(0, 2, 'nadeem.FamilyPortfolio')
-data.setCell(0, 3, 88235);
+data.setCell(0, 1, 'mainMethod')
+data.setCell(0, 2, 'nadeem.AppRegressionII')
+data.setCell(0, 3, 532723);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'Verify_user_login_and_clicks_on_RDD')
-data.setCell(1, 2, 'nadeem.FamilyPortfolio')
-data.setCell(1, 3, 25280);
+data.setCell(1, 2, 'nadeem.AppRegressionII')
+data.setCell(1, 3, 27032);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 9 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -297,17 +222,21 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="reporter-method-div">
-              <span class="reporter-method-name">familyportfoliosanity</span>
+              <span class="reporter-method-name">mainMethod</span>
               <div class="reporter-method-output-div">
                 <span class="reporter-method-output"><h3>Execution Report</h3></span>
                 <span class="reporter-method-output"><table border='1' style='border-collapse: collapse; width: 75%; text-align: center;'></span>
                 <span class="reporter-method-output"><tr><th>Sr. No</th><th>Test Case</th><th>Status</th><th>Time Taken (ms)</th></tr></span>
-                <span class="reporter-method-output"><tr><td>1</td><td>Family Portfolio button</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>1112</td></tr></span>
-                <span class="reporter-method-output"><tr><td>2</td><td>Family Portfolio Imran Head of Family All Tab</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>1035</td></tr></span>
-                <span class="reporter-method-output"><tr><td>3</td><td>Family Portfolio Imran HOF Portfolio stocks Tab</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>2542</td></tr></span>
-                <span class="reporter-method-output"><tr><td>4</td><td>Family Portfolio Abhinav agarwal ID All Tab</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>391</td></tr></span>
-                <span class="reporter-method-output"><tr><td>5</td><td>Family Portfolio Abhinav Agarwal ID Portfolio stocks Tab</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>3329</td></tr></span>
-                <span class="reporter-method-output"><tr><td>6</td><td>Family Portfolio Abhinav Agarwal ID Portfolio MF Tab</td><td style='background-color: red;color: white; font-weight: bold;'>Fail</td><td>40693</td></tr></span>
+                <span class="reporter-method-output"><tr><td>1</td><td>Stocks Button homescreen Redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>1228</td></tr></span>
+                <span class="reporter-method-output"><tr><td>2</td><td>Authorised Sell EDIS Redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>676</td></tr></span>
+                <span class="reporter-method-output"><tr><td>3</td><td>Portfolio Script Search</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>1284</td></tr></span>
+                <span class="reporter-method-output"><tr><td>4</td><td>Portfolio Gainers</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>4323</td></tr></span>
+                <span class="reporter-method-output"><tr><td>5</td><td>Portfolio Losers</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>3823</td></tr></span>
+                <span class="reporter-method-output"><tr><td>6</td><td>Portfolio Sort Z-A</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>811</td></tr></span>
+                <span class="reporter-method-output"><tr><td>7</td><td>Portfolio Sort A-Z</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>248</td></tr></span>
+                <span class="reporter-method-output"><tr><td>8</td><td>MF Invest Button homescreen Redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>1458</td></tr></span>
+                <span class="reporter-method-output"><tr><td>9</td><td>6 indices Edit Indices Error message</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>30531</td></tr></span>
+                <span class="reporter-method-output"></table></span>
               </div> <!-- reporter-method-output-div -->
             </div> <!-- reporter-method-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -325,24 +254,22 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">nadeem.FamilyPortfolio</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">nadeem.AppRegressionII</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">launchapp</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
                 <span class="method-name">Verify_user_login_and_clicks_on_RDD</span>
-                <span class="method-start">18291 ms</span>
+                <span class="method-start">15474 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">familyportfoliosanity</span>
-                <span class="method-start">43587 ms</span>
+                <span class="method-name">mainMethod</span>
+                <span class="method-start">42517 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">Verify_user_kills_app</span>
-                <span class="method-start">131828 ms</span>
+                <span class="method-start">575243 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -6,7 +6,6 @@ import java.net.URL;
 import java.time.Duration;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import org.testng.annotations.AfterTest;
@@ -21,11 +20,12 @@ import io.appium.java_client.android.AndroidDriver;
 import pageobjects.HomePage;
 import pageobjects.LoginPage;
 import pageobjects.Portfolio;
+import pageobjects.ResusableMethods;
 import utils.Commons;
 
-public class FamilyPortfolio {
-//Use ImranId=EMUM187598
-	
+public class AccountAggregator {
+	// Use NadeemId=MOQ15960
+
 	AndroidDriver Driver;
 	String status;
 	ExtentReports extent;
@@ -42,7 +42,7 @@ public class FamilyPortfolio {
 		capabilities.setCapability("platformVersion", "13");
 		capabilities.setCapability("deviceName", "CPH2467");
 		capabilities.setCapability("udid", "97957054");
-		capabilities.setCapability("appPackage", Commons.getGlobalPropertiesValue("Rise_app_package_pilot"));
+		capabilities.setCapability("appPackage", Commons.getGlobalPropertiesValue("Rise_app_package"));
 		capabilities.setCapability("appActivity", Commons.getGlobalPropertiesValue("Rise_app_activity"));
 		capabilities.setCapability("automationName", "UiAutomator2");
 		capabilities.setCapability("autoGrantPermissions", true);
@@ -93,138 +93,108 @@ public class FamilyPortfolio {
 	}
 
 	@Test(priority = 2)
-	public void familyportfoliosanity() throws InterruptedException {
+	public void accountmainmethod() {
 		logger.logTableStart("Execution Report");
 
-		familyportfolioCTAinPortfolio();
-		HeadofFamilyTab();
-		stocksTab();
-		abhinavID();
-		abhinavIDStocksTab();
-		abhinavIDMFTab();
-		abhinavIDBtxTab();
+		angeltest();
+		growwtest();
+		pulsebroker();
+		miraebroker();
+		others();
+		upstox();
 
 		logger.logTableEnd();
 	}
 
-	public void familyportfolioCTAinPortfolio() {
-		Portfolio portfolio = new Portfolio(Driver);
+	public void angeltest() {
 		HomePage homepage = new HomePage(Driver);
+		Portfolio portfolio = new Portfolio(Driver);
 		homepage.portfolioBottombar.click();
-		portfolio.familyPortfolioIcon.click();
+		portfolio.externalTab.click();
 		long startTime = System.currentTimeMillis();
 		try {
-			wait.until(ExpectedConditions.visibilityOf(portfolio.familySummaryTab));
-			portfolio.familySummaryTab.isDisplayed();
+			portfolio.angelOneLimited.isDisplayed();
 			status = "Pass";
 		} catch (Exception e) {
 			status = "Fail";
 		} finally {
 			long endTime = System.currentTimeMillis();
-			logger.logTableRow("Family Portfolio button", status, endTime - startTime);
+			logger.logTableRow("Angel one Broker", status, endTime - startTime);
 		}
-
 	}
 
-	public void HeadofFamilyTab() {
+	public void growwtest() {
 		Portfolio portfolio = new Portfolio(Driver);
-		portfolio.familySummaryTab.click();
-		portfolio.HOFname.click();
 		long startTime = System.currentTimeMillis();
 		try {
-			wait.until(ExpectedConditions.visibilityOf(portfolio.portfolioNews));
-			portfolio.HOFname.isDisplayed();
+			portfolio.groww.isDisplayed();
 			status = "Pass";
 		} catch (Exception e) {
 			status = "Fail";
 		} finally {
 			long endTime = System.currentTimeMillis();
-			logger.logTableRow("Family Portfolio Imran Head of Family All Tab", status, endTime - startTime);
+			logger.logTableRow("Groww Broker", status, endTime - startTime);
 		}
 	}
 
-	public void stocksTab() {
+	public void pulsebroker() {
 		Portfolio portfolio = new Portfolio(Driver);
-		portfolio.StocksTabPortfolio.click();
 		long startTime = System.currentTimeMillis();
 		try {
-			wait.until(ExpectedConditions.visibilityOf(portfolio.imranportfoliostocks));
-			portfolio.imranportfoliostocks.isDisplayed();
+			portfolio.marketPulseSecurities.isDisplayed();
 			status = "Pass";
 		} catch (Exception e) {
 			status = "Fail";
 		} finally {
 			long endTime = System.currentTimeMillis();
-			logger.logTableRow("Family Portfolio Imran HOF Portfolio stocks Tab", status, endTime - startTime);
+			logger.logTableRow("Pulse Broker", status, endTime - startTime);
 		}
 	}
 
-	public void abhinavID() {
+	public void miraebroker() {
+		ResusableMethods.swipeCorinates(Driver, 479, 1893, 479, 900, 1);
 		Portfolio portfolio = new Portfolio(Driver);
-		portfolio.imranIDportfolio.click();
-		portfolio.AbhinavIDportfolio.click();
 		long startTime = System.currentTimeMillis();
 		try {
-			wait.until(ExpectedConditions.visibilityOf(portfolio.abhinavidalltab));
-			portfolio.abhinavidalltab.isDisplayed();
+			portfolio.miraeAssetCapitalMarkets.isDisplayed();
 			status = "Pass";
 		} catch (Exception e) {
 			status = "Fail";
 		} finally {
 			long endTime = System.currentTimeMillis();
-			logger.logTableRow("Family Portfolio Abhinav agarwal ID All Tab", status, endTime - startTime);
+			logger.logTableRow("Mirae Broker", status, endTime - startTime);
 		}
 	}
 
-	public void abhinavIDStocksTab() {
+	public void others() {
 		Portfolio portfolio = new Portfolio(Driver);
-		portfolio.StocksTabPortfolio.click();
 		long startTime = System.currentTimeMillis();
 		try {
-			wait.until(ExpectedConditions.visibilityOf(portfolio.imranportfoliostocks));
-			portfolio.imranportfoliostocks.isDisplayed();
+			portfolio.othersTab.isDisplayed();
 			status = "Pass";
 		} catch (Exception e) {
 			status = "Fail";
 		} finally {
 			long endTime = System.currentTimeMillis();
-			logger.logTableRow("Family Portfolio Abhinav Agarwal ID Portfolio stocks Tab", status, endTime - startTime);
+			logger.logTableRow("other Broker", status, endTime - startTime);
 		}
 	}
 
-	public void abhinavIDMFTab() {
+	public void upstox() {
 		Portfolio portfolio = new Portfolio(Driver);
-		portfolio.MFTabPortfolio.click();
 		long startTime = System.currentTimeMillis();
 		try {
-			wait.until(ExpectedConditions.visibilityOf(portfolio.portfoliomfpage));
-			portfolio.portfoliomfpage.isDisplayed();
+			portfolio.upstox.isDisplayed();
 			status = "Pass";
 		} catch (Exception e) {
 			status = "Fail";
 		} finally {
 			long endTime = System.currentTimeMillis();
-			logger.logTableRow("Family Portfolio Abhinav Agarwal ID Portfolio MF Tab", status, endTime - startTime);
+			logger.logTableRow("upstox Broker", status, endTime - startTime);
 		}
 	}
 
-	public void abhinavIDBtxTab() {
-		Portfolio portfolio = new Portfolio(Driver);
-		portfolio.BasketTabPortfolio.click();
-		long startTime = System.currentTimeMillis();
-		try {
-			wait.until(ExpectedConditions.visibilityOf(portfolio.btxpage));
-			portfolio.btxpage.isDisplayed();
-			status = "Pass";
-		} catch (Exception e) {
-			status = "Fail";
-		} finally {
-			long endTime = System.currentTimeMillis();
-			logger.logTableRow("Family Portfolio Abhinav Agarwal ID Portfolio BTX Tab", status, endTime - startTime);
-		}
-	}
-
-// Helper Methods for Logging Tables
+	// Helper Methods for Logging Tables
 	public class TableLogger {
 		private int rowCounter = 0; // To keep track of the serial number
 

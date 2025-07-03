@@ -6,7 +6,6 @@ import java.net.URL;
 import java.time.Duration;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import org.testng.annotations.AfterTest;
@@ -20,12 +19,13 @@ import drivers.DriverFactory;
 import io.appium.java_client.android.AndroidDriver;
 import pageobjects.HomePage;
 import pageobjects.LoginPage;
+import pageobjects.MfHomePage;
 import pageobjects.Portfolio;
+import pageobjects.ResusableMethods;
 import utils.Commons;
 
-public class FamilyPortfolio {
-//Use ImranId=EMUM187598
-	
+public class AppRegressionII {
+//User VandaID Y05120
 	AndroidDriver Driver;
 	String status;
 	ExtentReports extent;
@@ -93,138 +93,184 @@ public class FamilyPortfolio {
 	}
 
 	@Test(priority = 2)
-	public void familyportfoliosanity() throws InterruptedException {
+	public void mainMethod() throws InterruptedException {
 		logger.logTableStart("Execution Report");
 
-		familyportfolioCTAinPortfolio();
-		HeadofFamilyTab();
-		stocksTab();
-		abhinavID();
-		abhinavIDStocksTab();
-		abhinavIDMFTab();
-		abhinavIDBtxTab();
+		homeportfolioredirection();
+		edisredirection();
+		portfolioscriptsearch();
+		gainers();
+		loser();
+		sortZA();
+		sortAZ();
+		homemfredirection();
+		editindices();
 
 		logger.logTableEnd();
 	}
 
-	public void familyportfolioCTAinPortfolio() {
-		Portfolio portfolio = new Portfolio(Driver);
+	public void homeportfolioredirection() {
 		HomePage homepage = new HomePage(Driver);
-		homepage.portfolioBottombar.click();
-		portfolio.familyPortfolioIcon.click();
-		long startTime = System.currentTimeMillis();
-		try {
-			wait.until(ExpectedConditions.visibilityOf(portfolio.familySummaryTab));
-			portfolio.familySummaryTab.isDisplayed();
-			status = "Pass";
-		} catch (Exception e) {
-			status = "Fail";
-		} finally {
-			long endTime = System.currentTimeMillis();
-			logger.logTableRow("Family Portfolio button", status, endTime - startTime);
-		}
-
-	}
-
-	public void HeadofFamilyTab() {
 		Portfolio portfolio = new Portfolio(Driver);
-		portfolio.familySummaryTab.click();
-		portfolio.HOFname.click();
+		homepage.homeTabHeader.click();
+		homepage.stocksbutton.click();
 		long startTime = System.currentTimeMillis();
 		try {
-			wait.until(ExpectedConditions.visibilityOf(portfolio.portfolioNews));
-			portfolio.HOFname.isDisplayed();
+			portfolio.StocksTabPortfolio.isDisplayed();
 			status = "Pass";
 		} catch (Exception e) {
 			status = "Fail";
 		} finally {
 			long endTime = System.currentTimeMillis();
-			logger.logTableRow("Family Portfolio Imran Head of Family All Tab", status, endTime - startTime);
+			logger.logTableRow("Stocks Button homescreen Redirection", status, endTime - startTime);
 		}
 	}
 
-	public void stocksTab() {
+	public void edisredirection() {
 		Portfolio portfolio = new Portfolio(Driver);
-		portfolio.StocksTabPortfolio.click();
+		portfolio.authorisedsell.click();
 		long startTime = System.currentTimeMillis();
 		try {
-			wait.until(ExpectedConditions.visibilityOf(portfolio.imranportfoliostocks));
-			portfolio.imranportfoliostocks.isDisplayed();
+			portfolio.edispage.isDisplayed();
 			status = "Pass";
 		} catch (Exception e) {
 			status = "Fail";
 		} finally {
 			long endTime = System.currentTimeMillis();
-			logger.logTableRow("Family Portfolio Imran HOF Portfolio stocks Tab", status, endTime - startTime);
+			Driver.navigate().back();
+			logger.logTableRow("Authorised Sell EDIS Redirection", status, endTime - startTime);
 		}
+
 	}
 
-	public void abhinavID() {
+	public void portfolioscriptsearch() throws InterruptedException {
 		Portfolio portfolio = new Portfolio(Driver);
-		portfolio.imranIDportfolio.click();
-		portfolio.AbhinavIDportfolio.click();
+		portfolio.searchicon.click();
+		portfolio.searchtextbox.click();
+		portfolio.searchtextbox.sendKeys("HAZOOR");
 		long startTime = System.currentTimeMillis();
 		try {
-			wait.until(ExpectedConditions.visibilityOf(portfolio.abhinavidalltab));
-			portfolio.abhinavidalltab.isDisplayed();
+			portfolio.hazoorSearchResult.isDisplayed();
 			status = "Pass";
 		} catch (Exception e) {
 			status = "Fail";
 		} finally {
 			long endTime = System.currentTimeMillis();
-			logger.logTableRow("Family Portfolio Abhinav agarwal ID All Tab", status, endTime - startTime);
+			Driver.hideKeyboard();
+			for (int i = 0; i < 2; i++) {
+				portfolio.searchclose.click();
+				Thread.sleep(300);
+			}
+			logger.logTableRow("Portfolio Script Search", status, endTime - startTime);
 		}
 	}
 
-	public void abhinavIDStocksTab() {
+	public void gainers() {
 		Portfolio portfolio = new Portfolio(Driver);
-		portfolio.StocksTabPortfolio.click();
+		portfolio.gainers.click();
 		long startTime = System.currentTimeMillis();
 		try {
-			wait.until(ExpectedConditions.visibilityOf(portfolio.imranportfoliostocks));
-			portfolio.imranportfoliostocks.isDisplayed();
+			portfolio.gainerverification.isDisplayed();
 			status = "Pass";
 		} catch (Exception e) {
 			status = "Fail";
 		} finally {
 			long endTime = System.currentTimeMillis();
-			logger.logTableRow("Family Portfolio Abhinav Agarwal ID Portfolio stocks Tab", status, endTime - startTime);
+			logger.logTableRow("Portfolio Gainers", status, endTime - startTime);
 		}
+
 	}
 
-	public void abhinavIDMFTab() {
+	public void loser() {
 		Portfolio portfolio = new Portfolio(Driver);
-		portfolio.MFTabPortfolio.click();
+		portfolio.loser.click();
 		long startTime = System.currentTimeMillis();
 		try {
-			wait.until(ExpectedConditions.visibilityOf(portfolio.portfoliomfpage));
-			portfolio.portfoliomfpage.isDisplayed();
+			portfolio.loserverification.isDisplayed();
 			status = "Pass";
 		} catch (Exception e) {
 			status = "Fail";
 		} finally {
 			long endTime = System.currentTimeMillis();
-			logger.logTableRow("Family Portfolio Abhinav Agarwal ID Portfolio MF Tab", status, endTime - startTime);
+			// Driver.navigate().back();
+			logger.logTableRow("Portfolio Losers", status, endTime - startTime);
 		}
 	}
 
-	public void abhinavIDBtxTab() {
+	public void sortZA() {
 		Portfolio portfolio = new Portfolio(Driver);
-		portfolio.BasketTabPortfolio.click();
+		portfolio.kababmenu.click();
+		portfolio.sortZA.click();
+		portfolio.applybutton.click();
 		long startTime = System.currentTimeMillis();
 		try {
-			wait.until(ExpectedConditions.visibilityOf(portfolio.btxpage));
-			portfolio.btxpage.isDisplayed();
+			portfolio.sortedresultZA.isDisplayed();
 			status = "Pass";
 		} catch (Exception e) {
 			status = "Fail";
 		} finally {
 			long endTime = System.currentTimeMillis();
-			logger.logTableRow("Family Portfolio Abhinav Agarwal ID Portfolio BTX Tab", status, endTime - startTime);
+			logger.logTableRow("Portfolio Sort Z-A", status, endTime - startTime);
 		}
 	}
 
-// Helper Methods for Logging Tables
+	public void sortAZ() {
+		Portfolio portfolio = new Portfolio(Driver);
+		portfolio.kababmenu.click();
+		portfolio.sortAZ.click();
+		portfolio.applybutton.click();
+		long startTime = System.currentTimeMillis();
+		try {
+			portfolio.sortedresultAZ.isDisplayed();
+			status = "Pass";
+		} catch (Exception e) {
+			status = "Fail";
+		} finally {
+			long endTime = System.currentTimeMillis();
+			Driver.navigate().back();
+			logger.logTableRow("Portfolio Sort A-Z", status, endTime - startTime);
+		}
+
+	}
+
+	public void homemfredirection() {
+		HomePage homepage = new HomePage(Driver);
+		MfHomePage mfhomePage = new MfHomePage(Driver);
+		homepage.mfinvestButton.click();
+		long startTime = System.currentTimeMillis();
+		try {
+			mfhomePage.dematHoldingbutton.isDisplayed();
+			status = "Pass";
+		} catch (Exception e) {
+			status = "Fail";
+		} finally {
+			long endTime = System.currentTimeMillis();
+			Driver.navigate().back();
+			logger.logTableRow("MF Invest Button homescreen Redirection", status, endTime - startTime);
+		}
+	}
+
+	public void editindices() {
+		HomePage homepage = new HomePage(Driver);
+		ResusableMethods.horizontalSwipetillElement(Driver, homepage.editindices, 0, 5, 991, 109, 626);
+		homepage.editindices.click();
+		ResusableMethods.verticalswipetillElement(Driver, homepage.niftycpse, 0, 5, 470, 1911, 830);
+		homepage.indicescheckbox.click();
+		long startTime = System.currentTimeMillis();
+		try {
+			homepage.indiceserrormessage.isDisplayed();
+			status = "Pass";
+		} catch (Exception e) {
+			status = "Fail";
+		} finally {
+			long endTime = System.currentTimeMillis();
+			Driver.navigate().back();
+			logger.logTableRow("6 indices Edit Indices Error message", status, endTime - startTime);
+		}
+
+	}
+
+	// Helper Methods for Logging Tables
 	public class TableLogger {
 		private int rowCounter = 0; // To keep track of the serial number
 

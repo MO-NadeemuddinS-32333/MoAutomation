@@ -27,6 +27,24 @@ public class HomePage {
 		return userID;
 	}
 
+	@FindBy (xpath = "//android.view.View[@content-desc=\"A maximum of 6 indices can be selected\"]")
+	public WebElement indiceserrormessage;
+	
+	@FindBy(xpath = "//android.view.View[contains(@content-desc,'Nifty CPSE')]/android.view.View")
+	public WebElement indicescheckbox;
+	
+	@FindBy (xpath = "//android.view.View[contains(@content-desc,'Nifty CPSE')]")
+	public WebElement niftycpse;
+	
+	@FindBy (xpath = "//android.widget.ImageView[contains(@content-desc,'Edit')]")
+	public WebElement editindices;
+	
+	@FindBy(xpath = "//android.widget.ImageView[contains(@content-desc,'Mutual Fund')]")
+	public WebElement mfinvestButton;
+	
+	@FindBy(xpath = "//android.widget.ImageView[contains(@content-desc,'Stocks')]")
+	public WebElement stocksbutton;
+	
 	@FindBy (xpath = "//android.view.View[@content-desc=\"Trading & Investment\"]")
 	public WebElement tradinginvestment;
 	

@@ -44,7 +44,7 @@ public class Watchlist {
 	@FindBy(xpath = "//android.view.View[contains(@content-desc,'Successfully removed')]")
 	public WebElement scriptdeletedtoastmessage;
 
-	@FindBy(xpath = "(//android.widget.ImageView)[6]")
+	@FindBy(xpath = "(//android.widget.ImageView)[5]")
 	public WebElement kebabmenuwatchlist;
 
 	@FindBy(xpath = "//android.widget.ImageView[@content-desc=\"Manage Watchlist\"]")
