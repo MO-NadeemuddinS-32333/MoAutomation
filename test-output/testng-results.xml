@@ -11,50 +11,56 @@
       <![CDATA[<tr><th>Sr. No</th><th>Test Case</th><th>Status</th><th>Time Taken (ms)</th></tr>]]>
     </line>
     <line>
-      <![CDATA[<tr><td>1</td><td>Stocks Button homescreen Redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>1228</td></tr>]]>
+      <![CDATA[<tr><td>1</td><td>StatX Tab Redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>1512</td></tr>]]>
     </line>
     <line>
-      <![CDATA[<tr><td>2</td><td>Authorised Sell EDIS Redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>676</td></tr>]]>
+      <![CDATA[<tr><td>2</td><td>Strategy Trade details Hide Icon</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>193</td></tr>]]>
     </line>
     <line>
-      <![CDATA[<tr><td>3</td><td>Portfolio Script Search</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>1284</td></tr>]]>
+      <![CDATA[<tr><td>3</td><td>Strategy Trade Summary close Dropdown</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>23003</td></tr>]]>
     </line>
     <line>
-      <![CDATA[<tr><td>4</td><td>Portfolio Gainers</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>4323</td></tr>]]>
+      <![CDATA[<tr><td>4</td><td>Strategy Trade Summary open Dropdown</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>1492</td></tr>]]>
     </line>
     <line>
-      <![CDATA[<tr><td>5</td><td>Portfolio Losers</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>3823</td></tr>]]>
+      <![CDATA[<tr><td>5</td><td>Subscribed Strategy Trade Details</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>8039</td></tr>]]>
     </line>
     <line>
-      <![CDATA[<tr><td>6</td><td>Portfolio Sort Z-A</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>811</td></tr>]]>
+      <![CDATA[<tr><td>6</td><td>Popular Strategy View All</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>7444</td></tr>]]>
     </line>
     <line>
-      <![CDATA[<tr><td>7</td><td>Portfolio Sort A-Z</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>248</td></tr>]]>
+      <![CDATA[<tr><td>7</td><td>Strategies Bottom Bar redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>5667</td></tr>]]>
     </line>
     <line>
-      <![CDATA[<tr><td>8</td><td>MF Invest Button homescreen Redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>1458</td></tr>]]>
+      <![CDATA[<tr><td>8</td><td>SX Trades Bottom Bar redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>4462</td></tr>]]>
     </line>
     <line>
-      <![CDATA[<tr><td>9</td><td>6 indices Edit Indices Error message</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>30531</td></tr>]]>
+      <![CDATA[<tr><td>9</td><td>SX History Bottom Bar redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>170</td></tr>]]>
+    </line>
+    <line>
+      <![CDATA[<tr><td>10</td><td>StratX Explore Bottom Bar redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>2152</td></tr>]]>
+    </line>
+    <line>
+      <![CDATA[<tr><td>11</td><td>Premium Strategies bottom View All</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>2638</td></tr>]]>
     </line>
     <line>
       <![CDATA[</table>]]>
     </line>
   </reporter-output>
-  <suite started-at="2025-07-03T14:04:07 IST" name="Default suite" finished-at="2025-07-03T14:13:43 IST" duration-ms="576032">
+  <suite started-at="2025-07-08T15:23:30 IST" name="Default suite" finished-at="2025-07-08T15:26:16 IST" duration-ms="166353">
     <groups>
     </groups>
-    <test started-at="2025-07-03T14:04:07 IST" name="Default test" finished-at="2025-07-03T14:13:43 IST" duration-ms="576032">
-      <class name="nadeem.AppRegressionII">
-        <test-method is-config="true" signature="launchapp()[pri:0, instance:nadeem.AppRegressionII@3e96bacf]" started-at="2025-07-03T14:04:07 IST" name="launchapp" finished-at="2025-07-03T14:04:23 IST" duration-ms="15436" status="PASS">
+    <test started-at="2025-07-08T15:23:30 IST" name="Default test" finished-at="2025-07-08T15:26:16 IST" duration-ms="166353">
+      <class name="nadeem.stratX">
+        <test-method is-config="true" signature="launchapp()[pri:0, instance:nadeem.stratX@4470f8a6]" started-at="2025-07-08T15:23:30 IST" name="launchapp" finished-at="2025-07-08T15:23:47 IST" duration-ms="17300" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchapp -->
-        <test-method signature="Verify_user_login_and_clicks_on_RDD()[pri:1, instance:nadeem.AppRegressionII@3e96bacf]" started-at="2025-07-03T14:04:23 IST" name="Verify_user_login_and_clicks_on_RDD" finished-at="2025-07-03T14:04:50 IST" duration-ms="27032" status="PASS">
+        <test-method signature="Verify_user_login_and_clicks_on_RDD()[pri:1, instance:nadeem.stratX@4470f8a6]" started-at="2025-07-08T15:23:47 IST" name="Verify_user_login_and_clicks_on_RDD" finished-at="2025-07-08T15:24:18 IST" duration-ms="30670" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Verify_user_login_and_clicks_on_RDD -->
-        <test-method signature="mainMethod()[pri:2, instance:nadeem.AppRegressionII@3e96bacf]" started-at="2025-07-03T14:04:50 IST" name="mainMethod" finished-at="2025-07-03T14:13:42 IST" duration-ms="532723" status="PASS">
+        <test-method signature="mainMethod()[pri:2, instance:nadeem.stratX@4470f8a6]" started-at="2025-07-08T15:24:18 IST" name="mainMethod" finished-at="2025-07-08T15:26:15 IST" duration-ms="117408" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[<h3>Execution Report</h3>]]>
@@ -66,42 +72,48 @@
               <![CDATA[<tr><th>Sr. No</th><th>Test Case</th><th>Status</th><th>Time Taken (ms)</th></tr>]]>
             </line>
             <line>
-              <![CDATA[<tr><td>1</td><td>Stocks Button homescreen Redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>1228</td></tr>]]>
+              <![CDATA[<tr><td>1</td><td>StatX Tab Redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>1512</td></tr>]]>
             </line>
             <line>
-              <![CDATA[<tr><td>2</td><td>Authorised Sell EDIS Redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>676</td></tr>]]>
+              <![CDATA[<tr><td>2</td><td>Strategy Trade details Hide Icon</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>193</td></tr>]]>
             </line>
             <line>
-              <![CDATA[<tr><td>3</td><td>Portfolio Script Search</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>1284</td></tr>]]>
+              <![CDATA[<tr><td>3</td><td>Strategy Trade Summary close Dropdown</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>23003</td></tr>]]>
             </line>
             <line>
-              <![CDATA[<tr><td>4</td><td>Portfolio Gainers</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>4323</td></tr>]]>
+              <![CDATA[<tr><td>4</td><td>Strategy Trade Summary open Dropdown</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>1492</td></tr>]]>
             </line>
             <line>
-              <![CDATA[<tr><td>5</td><td>Portfolio Losers</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>3823</td></tr>]]>
+              <![CDATA[<tr><td>5</td><td>Subscribed Strategy Trade Details</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>8039</td></tr>]]>
             </line>
             <line>
-              <![CDATA[<tr><td>6</td><td>Portfolio Sort Z-A</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>811</td></tr>]]>
+              <![CDATA[<tr><td>6</td><td>Popular Strategy View All</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>7444</td></tr>]]>
             </line>
             <line>
-              <![CDATA[<tr><td>7</td><td>Portfolio Sort A-Z</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>248</td></tr>]]>
+              <![CDATA[<tr><td>7</td><td>Strategies Bottom Bar redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>5667</td></tr>]]>
             </line>
             <line>
-              <![CDATA[<tr><td>8</td><td>MF Invest Button homescreen Redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>1458</td></tr>]]>
+              <![CDATA[<tr><td>8</td><td>SX Trades Bottom Bar redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>4462</td></tr>]]>
             </line>
             <line>
-              <![CDATA[<tr><td>9</td><td>6 indices Edit Indices Error message</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>30531</td></tr>]]>
+              <![CDATA[<tr><td>9</td><td>SX History Bottom Bar redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>170</td></tr>]]>
+            </line>
+            <line>
+              <![CDATA[<tr><td>10</td><td>StratX Explore Bottom Bar redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>2152</td></tr>]]>
+            </line>
+            <line>
+              <![CDATA[<tr><td>11</td><td>Premium Strategies bottom View All</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>2638</td></tr>]]>
             </line>
             <line>
               <![CDATA[</table>]]>
             </line>
           </reporter-output>
         </test-method> <!-- mainMethod -->
-        <test-method is-config="true" signature="Verify_user_kills_app()[pri:0, instance:nadeem.AppRegressionII@3e96bacf]" started-at="2025-07-03T14:13:42 IST" name="Verify_user_kills_app" finished-at="2025-07-03T14:13:43 IST" duration-ms="777" status="PASS">
+        <test-method is-config="true" signature="Verify_user_kills_app()[pri:0, instance:nadeem.stratX@4470f8a6]" started-at="2025-07-08T15:26:15 IST" name="Verify_user_kills_app" finished-at="2025-07-08T15:26:16 IST" duration-ms="902" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Verify_user_kills_app -->
-      </class> <!-- nadeem.AppRegressionII -->
+      </class> <!-- nadeem.stratX -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

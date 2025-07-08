@@ -27,6 +27,9 @@ public class HomePage {
 		return userID;
 	}
 
+	@FindBy(xpath = "//android.view.View[starts-with(@content-desc,'StratX')]")
+	public WebElement stratXtab;
+	
 	@FindBy (xpath = "//android.view.View[@content-desc=\"A maximum of 6 indices can be selected\"]")
 	public WebElement indiceserrormessage;
 	
