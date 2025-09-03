@@ -1,12 +1,18 @@
 package nadeem;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -74,7 +80,6 @@ public class AppRegression {
 		System.out.println("App launch request sent. Waiting for verification...");
 		Driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		wait = new WebDriverWait(Driver, Duration.ofSeconds(10));
-
 		Thread.sleep(5000);
 	}
 
@@ -222,12 +227,13 @@ public class AppRegression {
 	public void Global_search_Result() throws InterruptedException, IOException {
 		test = extent.createTest("Global Search Result");
 		HomePage homepage = new HomePage(Driver);
+		//homepage.logo.click();
 		homepage.Globalsearchbeforetap.click();
 		Thread.sleep(1000);
 		long startTime = System.currentTimeMillis();
-		homepage.Globalsearchaftertap.get(1).sendKeys(Commons.getGlobalPropertiesValue("global_search_scrip"));
+		// homepage.Globalsearchaftertap.sendKeys("Yes bank");
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(6000);
 			WebElement searchresult = wait.until(ExpectedConditions.visibilityOf(homepage.Globalsearchresult));
 			String resultsearch = searchresult.getDomAttribute("content-desc");
 			List<String> splitresult = Arrays.asList(resultsearch.split("\\s+"));
@@ -238,6 +244,10 @@ public class AppRegression {
 			test.pass("Global search Result Passed");
 		} catch (Exception e) {
 			status = "Fail";
+			File screenshot = ((TakesScreenshot) Driver).getScreenshotAs(OutputType.FILE);
+			String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			FileUtils.copyFile(screenshot,
+					new File("C:/Users/nadeemuddinsayed/Desktop/somu sir/Global_search_Result_" + timestamp + ".png"));
 			test.fail("Global search Result Failed");
 			test.info(e.getMessage());
 		} finally {
@@ -247,7 +257,7 @@ public class AppRegression {
 		}
 	}
 
-	public void Get_quote_fut_tab() {
+	public void Get_quote_fut_tab() throws IOException {
 		test = extent.createTest("Get quote fut tab");
 		GetQuote getquote = new GetQuote(Driver);
 		wait.until(ExpectedConditions.elementToBeClickable(getquote.FutTab));
@@ -262,6 +272,10 @@ public class AppRegression {
 			test.pass("Get quote fut tab Passed");
 		} catch (Exception e) {
 			status = "Fail";
+			File screenshot = ((TakesScreenshot) Driver).getScreenshotAs(OutputType.FILE);
+			String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			FileUtils.copyFile(screenshot,
+					new File("C:/Users/nadeemuddinsayed/Desktop/somu sir/getquotefuttab" + timestamp + ".png"));
 			test.fail("Get quote fut tab Failed");
 			test.info(e.getMessage());
 		} finally {
@@ -271,7 +285,7 @@ public class AppRegression {
 
 	}
 
-	public void Get_quote_opt_tab() {
+	public void Get_quote_opt_tab() throws IOException {
 		test = extent.createTest("Get quote opt tab");
 		GetQuote getquote = new GetQuote(Driver);
 		wait.until(ExpectedConditions.elementToBeClickable(getquote.optionsTab));
@@ -286,6 +300,10 @@ public class AppRegression {
 			test.pass("Get quote opt tab Passed");
 		} catch (Exception e) {
 			status = "Fail";
+			File screenshot = ((TakesScreenshot) Driver).getScreenshotAs(OutputType.FILE);
+			String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			FileUtils.copyFile(screenshot,
+					new File("C:/Users/nadeemuddinsayed/Desktop/somu sir/getquoteopttab" + timestamp + ".png"));
 			test.fail("Get quote opt tab Failed");
 			test.info(e.getMessage());
 		} finally {
@@ -294,7 +312,7 @@ public class AppRegression {
 		}
 	}
 
-	public void Get_quote_cash_tab() {
+	public void Get_quote_cash_tab() throws IOException {
 		test = extent.createTest("Get quote cash tab");
 		GetQuote getquote = new GetQuote(Driver);
 		wait.until(ExpectedConditions.elementToBeClickable(getquote.cashtab));
@@ -309,6 +327,10 @@ public class AppRegression {
 			test.pass("Get quote cash tab Passed");
 		} catch (Exception e) {
 			status = "Fail";
+			File screenshot = ((TakesScreenshot) Driver).getScreenshotAs(OutputType.FILE);
+			String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			FileUtils.copyFile(screenshot,
+					new File("C:/Users/nadeemuddinsayed/Desktop/somu sir/getquotecashtab" + timestamp + ".png"));
 			test.fail("Get quote cash tab");
 			test.info(e.getMessage());
 		} finally {
@@ -317,7 +339,7 @@ public class AppRegression {
 		}
 	}
 
-	public void Get_quote_Nse_switch_Delivery_buy() throws InterruptedException {
+	public void Get_quote_Nse_switch_Delivery_buy() throws InterruptedException, IOException {
 		test = extent.createTest("Get quote Nse switch delivery buy order form");
 		GetQuote getquote = new GetQuote(Driver);
 		OrderForm orderform = new OrderForm(Driver);
@@ -332,6 +354,10 @@ public class AppRegression {
 			test.pass("Get quote Nse switch delivery buy order form Passed");
 		} catch (Exception e) {
 			status = "Fail";
+			File screenshot = ((TakesScreenshot) Driver).getScreenshotAs(OutputType.FILE);
+			String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			FileUtils.copyFile(screenshot,
+					new File("C:/Users/nadeemuddinsayed/Desktop/somu sir/getquotenseswitchbuy" + timestamp + ".png"));
 			test.fail("Get quote Nse switch delivery buy order form Failed");
 			test.info(e.getMessage());
 		} finally {
@@ -341,7 +367,7 @@ public class AppRegression {
 		}
 	}
 
-	public void Get_quote_Nse_switch_Delivery_Sell() throws InterruptedException {
+	public void Get_quote_Nse_switch_Delivery_Sell() throws InterruptedException, IOException {
 		test = extent.createTest("Get quote Nse switch delivery Sell order form");
 		GetQuote getquote = new GetQuote(Driver);
 		OrderForm orderform = new OrderForm(Driver);
@@ -355,6 +381,10 @@ public class AppRegression {
 			test.pass("Get quote Nse switch delivery Sell order form Passed");
 		} catch (Exception e) {
 			status = "Fail";
+			File screenshot = ((TakesScreenshot) Driver).getScreenshotAs(OutputType.FILE);
+			String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			FileUtils.copyFile(screenshot,
+					new File("C:/Users/nadeemuddinsayed/Desktop/somu sir/getquotenseswitchsell" + timestamp + ".png"));
 			test.fail("Get quote Nse switch delivery Sell order form Failed");
 			test.info(e.getMessage());
 		} finally {
@@ -364,7 +394,7 @@ public class AppRegression {
 		}
 	}
 
-	public void Get_quote_Bse_switch_Delivery_buy() throws InterruptedException {
+	public void Get_quote_Bse_switch_Delivery_buy() throws InterruptedException, IOException {
 		test = extent.createTest("Get quote Bse switch delivery buy order form");
 		GetQuote getquote = new GetQuote(Driver);
 		OrderForm orderform = new OrderForm(Driver);
@@ -378,6 +408,10 @@ public class AppRegression {
 			test.pass("Get quote Bse switch delivery buy order form Passed");
 		} catch (Exception e) {
 			status = "Fail";
+			File screenshot = ((TakesScreenshot) Driver).getScreenshotAs(OutputType.FILE);
+			String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			FileUtils.copyFile(screenshot,
+					new File("C:/Users/nadeemuddinsayed/Desktop/somu sir/getquotebseswitchbuy" + timestamp + ".png"));
 			test.fail("Get quote Bse switch delivery buy order form Failed");
 			test.info(e.getMessage());
 		} finally {
@@ -387,7 +421,7 @@ public class AppRegression {
 		}
 	}
 
-	public void Get_quote_Bse_switch_Delivery_Sell() throws InterruptedException {
+	public void Get_quote_Bse_switch_Delivery_Sell() throws InterruptedException, IOException {
 		test = extent.createTest("Get quote Bse switch delivery sell order form");
 		GetQuote getquote = new GetQuote(Driver);
 		OrderForm orderform = new OrderForm(Driver);
@@ -401,6 +435,10 @@ public class AppRegression {
 			test.pass("Get quote Bse switch delivery sell order form Passed");
 		} catch (Exception e) {
 			status = "Fail";
+			File screenshot = ((TakesScreenshot) Driver).getScreenshotAs(OutputType.FILE);
+			String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			FileUtils.copyFile(screenshot,
+					new File("C:/Users/nadeemuddinsayed/Desktop/somu sir/getquotebsesell" + timestamp + ".png"));
 			test.fail("Get quote Bse switch delivery sell order form Failed");
 			test.info(e.getMessage());
 		} finally {
@@ -410,7 +448,7 @@ public class AppRegression {
 		}
 	}
 
-	public void Get_quote_charts() {
+	public void Get_quote_charts() throws IOException {
 		test = extent.createTest("Get quote charts button");
 		GetQuote getquote = new GetQuote(Driver);
 		long startTime = System.currentTimeMillis();
@@ -424,6 +462,10 @@ public class AppRegression {
 			test.pass("Get quote charts button Passed");
 		} catch (Exception e) {
 			status = "Fail";
+			File screenshot = ((TakesScreenshot) Driver).getScreenshotAs(OutputType.FILE);
+			String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			FileUtils.copyFile(screenshot,
+					new File("C:/Users/nadeemuddinsayed/Desktop/somu sir/getquotecharts" + timestamp + ".png"));
 			test.fail("Get quote charts button Failed");
 			test.info(e.getMessage());
 		} finally {
@@ -433,7 +475,7 @@ public class AppRegression {
 		}
 	}
 
-	public void Get_quote_optionchain() {
+	public void Get_quote_optionchain() throws IOException {
 		test = extent.createTest("Get quote optionchain button");
 		GetQuote getquote = new GetQuote(Driver);
 		long startTime = System.currentTimeMillis();
@@ -446,6 +488,10 @@ public class AppRegression {
 			test.pass("Get quote optionchain button Passed");
 		} catch (Exception e) {
 			status = "Fail";
+			File screenshot = ((TakesScreenshot) Driver).getScreenshotAs(OutputType.FILE);
+			String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			FileUtils.copyFile(screenshot,
+					new File("C:/Users/nadeemuddinsayed/Desktop/somu sir/getquoteoptionchain" + timestamp + ".png"));
 			test.fail("Get quote optionchain button Failed");
 			test.info(e.getMessage());
 		} finally {
@@ -455,7 +501,7 @@ public class AppRegression {
 		}
 	}
 
-	public void NseShow50Depth() {
+	public void NseShow50Depth() throws IOException {
 		test = extent.createTest("Get quote Nse show 50 depth");
 		GetQuote getquote = new GetQuote(Driver);
 		long startTime = System.currentTimeMillis();
@@ -472,6 +518,10 @@ public class AppRegression {
 			test.pass("Get quote Nse show 50 depth Passed");
 		} catch (Exception e) {
 			status = "Fail";
+			File screenshot = ((TakesScreenshot) Driver).getScreenshotAs(OutputType.FILE);
+			String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			FileUtils.copyFile(screenshot,
+					new File("C:/Users/nadeemuddinsayed/Desktop/somu sir/nseshow50depth" + timestamp + ".png"));
 			test.fail("Get quote Nse show 50 depth Failed");
 			test.info(e.getMessage());
 		} finally {
@@ -480,7 +530,7 @@ public class AppRegression {
 		}
 	}
 
-	public void Get_quote_fundamentaltab() throws InterruptedException {
+	public void Get_quote_fundamentaltab() throws InterruptedException, IOException {
 		test = extent.createTest("Get quote Fundamental Tab");
 		GetQuote getquote = new GetQuote(Driver);
 		long startTime = System.currentTimeMillis();
@@ -494,6 +544,10 @@ public class AppRegression {
 			test.pass("Get quote Fundamental Tab Passed");
 		} catch (Exception e) {
 			status = "Fail";
+			File screenshot = ((TakesScreenshot) Driver).getScreenshotAs(OutputType.FILE);
+			String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			FileUtils.copyFile(screenshot,
+					new File("C:/Users/nadeemuddinsayed/Desktop/somu sir/getquotefundamental" + timestamp + ".png"));
 			test.fail("Get quote oFundamental Tab Failed");
 			test.info(e.getMessage());
 		} finally {
@@ -502,7 +556,7 @@ public class AppRegression {
 		}
 	}
 
-	public void Get_quote_technicaltab() throws InterruptedException {
+	public void Get_quote_technicaltab() throws InterruptedException, IOException {
 		test = extent.createTest("Get quote Technical Tab");
 		GetQuote getquote = new GetQuote(Driver);
 		long startTime = System.currentTimeMillis();
@@ -515,6 +569,10 @@ public class AppRegression {
 			test.pass("Get quote Technical Tab Passed");
 		} catch (Exception e) {
 			status = "Fail";
+			File screenshot = ((TakesScreenshot) Driver).getScreenshotAs(OutputType.FILE);
+			String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			FileUtils.copyFile(screenshot,
+					new File("C:/Users/nadeemuddinsayed/Desktop/somu sir/getquotetechnicaltab" + timestamp + ".png"));
 			test.fail("Get quote Technical Tab Failed");
 			test.info(e.getMessage());
 		} finally {
@@ -523,7 +581,7 @@ public class AppRegression {
 		}
 	}
 
-	public void Get_quote_Newstab() throws InterruptedException {
+	public void Get_quote_Newstab() throws InterruptedException, IOException {
 		test = extent.createTest("Get quote News Tab");
 		GetQuote getquote = new GetQuote(Driver);
 		long startTime = System.currentTimeMillis();
@@ -537,6 +595,10 @@ public class AppRegression {
 			test.pass("Get quote News Tab Passed");
 		} catch (Exception e) {
 			status = "Fail";
+			File screenshot = ((TakesScreenshot) Driver).getScreenshotAs(OutputType.FILE);
+			String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			FileUtils.copyFile(screenshot,
+					new File("C:/Users/nadeemuddinsayed/Desktop/somu sir/getquotenewstab" + timestamp + ".png"));
 			test.fail("Get quote News Tab Failed");
 			test.info(e.getMessage());
 		} finally {
@@ -545,7 +607,7 @@ public class AppRegression {
 		}
 	}
 
-	public void Get_quote_Transactionstab() throws InterruptedException {
+	public void Get_quote_Transactionstab() throws InterruptedException, IOException {
 		test = extent.createTest("Get quote Transactions Tab");
 		GetQuote getquote = new GetQuote(Driver);
 		long startTime = System.currentTimeMillis();
@@ -560,6 +622,10 @@ public class AppRegression {
 			test.pass("Get quote Transactions Tab Passed");
 		} catch (Exception e) {
 			status = "Fail";
+			File screenshot = ((TakesScreenshot) Driver).getScreenshotAs(OutputType.FILE);
+			String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			FileUtils.copyFile(screenshot,
+					new File("C:/Users/nadeemuddinsayed/Desktop/somu sir/getquotetransaction" + timestamp + ".png"));
 			test.fail("Get quote Transactions Tab Failed");
 			test.info(e.getMessage());
 		}
@@ -590,11 +656,15 @@ public class AppRegression {
 			test.pass("Order Form quantity toggle Passed");
 		} catch (Exception e) {
 			status = "Fail";
+			File screenshot = ((TakesScreenshot) Driver).getScreenshotAs(OutputType.FILE);
+			String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			FileUtils.copyFile(screenshot, new File(
+					"C:/Users/nadeemuddinsayed/Desktop/somu sir/orderformquantitytoggle" + timestamp + ".png"));
 			test.fail("Order Form quantity toggle Failed");
 			test.info(e.getMessage());
 		} finally {
-			long endTime = System.currentTimeMillis(); // End timer
-			logger.logTableRow("Order Form quantity toggle", status, endTime - startTime); // Log search timing
+			long endTime = System.currentTimeMillis();
+			logger.logTableRow("Order Form quantity toggle", status, endTime - startTime);
 		}
 	}
 
@@ -608,7 +678,6 @@ public class AppRegression {
 			ResusableMethods.cleartextandenterinput(Driver, orderform.quantityMarket,
 					(Commons.getGlobalPropertiesValue("orderform_amount_toggle")));
 			Driver.hideKeyboard();
-
 			String quantity = orderform.quantityautocalculate.getDomAttribute("content-desc");
 			String autocalulatequantity = quantity.substring(5);
 			autocalulatequantity.equalsIgnoreCase(Commons.getGlobalPropertiesValue("orderform_amount_quantity"));
@@ -616,18 +685,22 @@ public class AppRegression {
 			test.pass("Order Form amount toggle Passed");
 		} catch (Exception e) {
 			status = "Fail";
+			File screenshot = ((TakesScreenshot) Driver).getScreenshotAs(OutputType.FILE);
+			String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			FileUtils.copyFile(screenshot,
+					new File("C:/Users/nadeemuddinsayed/Desktop/somu sir/orderformamounttoggle" + timestamp + ".png"));
 			test.fail("Order Form amount toggle Failed");
 			test.info(e.getMessage());
 		} finally {
-			long endTime = System.currentTimeMillis(); // End timer
-			Driver.navigate().back();
-			Driver.navigate().back();
-			Driver.navigate().back();
-			logger.logTableRow("Order Form amount toggle", status, endTime - startTime); // Log search timing
+			long endTime = System.currentTimeMillis();
+			for (int i = 0; i < 3; i++) {
+				Driver.navigate().back();
+			}
+			logger.logTableRow("Order Form amount toggle", status, endTime - startTime);
 		}
 	}
 
-	public void homepage_explore_hide_button() {
+	public void homepage_explore_hide_button() throws IOException {
 		test = extent.createTest("Homescreen portfolio hide mark");
 		HomePage homepage = new HomePage(Driver);
 		homepage.homeTabHeader.click();
@@ -635,7 +708,6 @@ public class AppRegression {
 		homepage.hidebutton.click();
 		try {
 			WebElement hidemark = wait.until(ExpectedConditions.visibilityOf(homepage.hideportfolio));
-
 			String markhide = hidemark.getDomAttribute("content-desc");
 			List<String> elements = Arrays.asList(markhide.split(" "));
 			String starmark = elements.get(8);
@@ -644,6 +716,10 @@ public class AppRegression {
 			test.pass("Homescreen portfolio hide mark Passed");
 		} catch (Exception e) {
 			status = "Fail";
+			File screenshot = ((TakesScreenshot) Driver).getScreenshotAs(OutputType.FILE);
+			String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			FileUtils.copyFile(screenshot,
+					new File("C:/Users/nadeemuddinsayed/Desktop/somu sir/homepageportfoliohide" + timestamp + ".png"));
 			test.fail("Homescreen portfolio hide mark Failed");
 			test.info(e.getMessage());
 		} finally {
@@ -1612,7 +1688,7 @@ public class AppRegression {
 		HomePage homepage = new HomePage(Driver);
 		long startTime = System.currentTimeMillis();
 		watchlist.Addscript.click();
-		homepage.Globalsearchaftertap.get(1).sendKeys("YESBANK EQ");
+		homepage.Globalsearchaftertap.sendKeys("YESBANK EQ");
 		watchlist.stocksglobalsearchtab.click();
 		wait.until(ExpectedConditions.visibilityOf(watchlist.addscripticon));
 		watchlist.addscripticon.click();

@@ -225,7 +225,7 @@ public class RiseApp {
 		HomePage homepage = new HomePage(Driver);
 		homepage.Globalsearchbeforetap.click();
 		Thread.sleep(1000);
-		homepage.Globalsearchaftertap.get(1).sendKeys(Commons.getGlobalPropertiesValue("global_search_scrip"));
+//		homepage.Globalsearchaftertap.get(1).sendKeys(Commons.getGlobalPropertiesValue("global_search_scrip"));
 		Instant start = Instant.now();
 		try {
 			WebElement searchresult = wait.until(ExpectedConditions.visibilityOf(homepage.Globalsearchresult));
@@ -1705,9 +1705,9 @@ public class RiseApp {
 	public void Add_script_in_watchlist() throws IOException, InterruptedException {
 		test = extent.createTest("Add Script in watchlist");
 		Watchlist watchlist = new Watchlist(Driver);
-		HomePage homepage = new HomePage(Driver);
+//		HomePage homepage = new HomePage(Driver);
 		watchlist.Addscript.click();
-		homepage.Globalsearchaftertap.get(1).sendKeys("YESBANK EQ");
+//		homepage.Globalsearchaftertap.get(1).sendKeys("YESBANK EQ");
 		watchlist.stocksglobalsearchtab.click();
 		wait.until(ExpectedConditions.visibilityOf(watchlist.addscripticon));
 		watchlist.addscripticon.click();

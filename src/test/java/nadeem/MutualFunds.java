@@ -40,7 +40,7 @@ public class MutualFunds {
 		capabilities.setCapability("platformVersion", "13");
 		capabilities.setCapability("deviceName", "CPH2467");
 		capabilities.setCapability("udid", "97957054");
-		capabilities.setCapability("appPackage", Commons.getGlobalPropertiesValue("Rise_app_package_pilot"));
+		capabilities.setCapability("appPackage", Commons.getGlobalPropertiesValue("Rise_app_package_UAT"));
 		capabilities.setCapability("appActivity", Commons.getGlobalPropertiesValue("Rise_app_activity"));
 		capabilities.setCapability("automationName", "UiAutomator2");
 		capabilities.setCapability("autoGrantPermissions", true);

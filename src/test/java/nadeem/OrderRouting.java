@@ -142,7 +142,7 @@ public class OrderRouting {
 		HomePage homepage = new HomePage(Driver);
 		homepage.Globalsearchbeforetap.click();
 		Thread.sleep(500);
-		homepage.Globalsearchaftertap.get(1).sendKeys(Commons.getGlobalPropertiesValue("global_search_scrip"));
+//		homepage.Globalsearchaftertap.get(1).sendKeys(Commons.getGlobalPropertiesValue("global_search_scrip"));
 		try {
 			long startTime = System.currentTimeMillis();
 			Thread.sleep(2000);

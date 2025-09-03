@@ -1,7 +1,5 @@
 package pageobjects;
 
-import java.util.List;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -27,6 +25,9 @@ public class HomePage {
 		return userID;
 	}
 
+	@FindBy(xpath = "//*[@id=\"nav-logo-sprites\"]")
+	public WebElement logo;
+	
 	@FindBy(xpath = "//android.view.View[starts-with(@content-desc,'StratX')]")
 	public WebElement stratXtab;
 	
@@ -63,8 +64,8 @@ public class HomePage {
 	@FindBy(xpath = "//android.widget.ImageView[@content-desc=\"Search\"]")
 	public WebElement Globalsearchbeforetap;
 
-	@FindBy(xpath = "//android.widget.ImageView")
-	public List<WebElement> Globalsearchaftertap;
+	@FindBy(xpath = "//android.view.View[@content-desc=\"Yes bank, Search Scrips, Stocks, Companies…\"]/android.widget.EditText")
+	public WebElement Globalsearchaftertap;
 
 	@FindBy(xpath = "//android.view.View[contains(@content-desc,'YESBANK')]")
 	public WebElement Globalsearchresult;

@@ -145,9 +145,10 @@ public class AppRegressionII {
 
 	public void portfolioscriptsearch() throws InterruptedException {
 		Portfolio portfolio = new Portfolio(Driver);
+		Thread.sleep(5000);
 		portfolio.searchicon.click();
-		portfolio.searchtextbox.click();
-		portfolio.searchtextbox.sendKeys("HAZOOR");
+		portfolio.searchbox.click();
+		portfolio.searchbox.sendKeys("HAZOOR");
 		long startTime = System.currentTimeMillis();
 		try {
 			portfolio.hazoorSearchResult.isDisplayed();
@@ -159,7 +160,7 @@ public class AppRegressionII {
 			Driver.hideKeyboard();
 			for (int i = 0; i < 2; i++) {
 				portfolio.searchclose.click();
-				Thread.sleep(300);
+				Thread.sleep(2000);
 			}
 			logger.logTableRow("Portfolio Script Search", status, endTime - startTime);
 		}
@@ -178,7 +179,6 @@ public class AppRegressionII {
 			long endTime = System.currentTimeMillis();
 			logger.logTableRow("Portfolio Gainers", status, endTime - startTime);
 		}
-
 	}
 
 	public void loser() {
@@ -230,7 +230,6 @@ public class AppRegressionII {
 			Driver.navigate().back();
 			logger.logTableRow("Portfolio Sort A-Z", status, endTime - startTime);
 		}
-
 	}
 
 	public void homemfredirection() {

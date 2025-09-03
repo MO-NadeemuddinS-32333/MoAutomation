@@ -12,9 +12,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-
 import drivers.DriverFactory;
 import io.appium.java_client.android.AndroidDriver;
 import pageobjects.HomePage;
@@ -27,8 +24,6 @@ public class stratX {
 	// User VandaID Y05120
 	AndroidDriver Driver;
 	String status;
-	ExtentReports extent;
-	ExtentTest test;
 	TableLogger logger = new TableLogger();
 	WebDriverWait wait;
 

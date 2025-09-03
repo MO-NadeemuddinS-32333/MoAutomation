@@ -81,7 +81,7 @@ public class MoRise {
 		logTableStart(tableName);
 		for (int i = 1; i <= Global_Search_Results_loop; i++) {
 			homepage.Globalsearchbeforetap.click();
-			homepage.Globalsearchaftertap.get(1).sendKeys(Commons.getGlobalPropertiesValue("global_search_scrip"));
+//			homepage.Globalsearchaftertap.get(1).sendKeys(Commons.getGlobalPropertiesValue("global_search_scrip"));
 			try {
 				long startTime = System.currentTimeMillis();
 				wait.until(ExpectedConditions.visibilityOf(homepage.Globalsearchresult));

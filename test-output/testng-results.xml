@@ -1,119 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
-    <line>
-      <![CDATA[<h3>Execution Report</h3>]]>
-    </line>
-    <line>
-      <![CDATA[<table border='1' style='border-collapse: collapse; width: 75%; text-align: center;'>]]>
-    </line>
-    <line>
-      <![CDATA[<tr><th>Sr. No</th><th>Test Case</th><th>Status</th><th>Time Taken (ms)</th></tr>]]>
-    </line>
-    <line>
-      <![CDATA[<tr><td>1</td><td>StatX Tab Redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>1512</td></tr>]]>
-    </line>
-    <line>
-      <![CDATA[<tr><td>2</td><td>Strategy Trade details Hide Icon</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>193</td></tr>]]>
-    </line>
-    <line>
-      <![CDATA[<tr><td>3</td><td>Strategy Trade Summary close Dropdown</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>23003</td></tr>]]>
-    </line>
-    <line>
-      <![CDATA[<tr><td>4</td><td>Strategy Trade Summary open Dropdown</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>1492</td></tr>]]>
-    </line>
-    <line>
-      <![CDATA[<tr><td>5</td><td>Subscribed Strategy Trade Details</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>8039</td></tr>]]>
-    </line>
-    <line>
-      <![CDATA[<tr><td>6</td><td>Popular Strategy View All</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>7444</td></tr>]]>
-    </line>
-    <line>
-      <![CDATA[<tr><td>7</td><td>Strategies Bottom Bar redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>5667</td></tr>]]>
-    </line>
-    <line>
-      <![CDATA[<tr><td>8</td><td>SX Trades Bottom Bar redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>4462</td></tr>]]>
-    </line>
-    <line>
-      <![CDATA[<tr><td>9</td><td>SX History Bottom Bar redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>170</td></tr>]]>
-    </line>
-    <line>
-      <![CDATA[<tr><td>10</td><td>StratX Explore Bottom Bar redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>2152</td></tr>]]>
-    </line>
-    <line>
-      <![CDATA[<tr><td>11</td><td>Premium Strategies bottom View All</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>2638</td></tr>]]>
-    </line>
-    <line>
-      <![CDATA[</table>]]>
-    </line>
   </reporter-output>
-  <suite started-at="2025-07-08T15:23:30 IST" name="Default suite" finished-at="2025-07-08T15:26:16 IST" duration-ms="166353">
+  <suite started-at="2025-09-03T12:35:25 IST" name="Default suite" finished-at="2025-09-03T12:35:53 IST" duration-ms="27620">
     <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:stepDefinations.TestRunner@2a266d09]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
     </groups>
-    <test started-at="2025-07-08T15:23:30 IST" name="Default test" finished-at="2025-07-08T15:26:16 IST" duration-ms="166353">
-      <class name="nadeem.stratX">
-        <test-method is-config="true" signature="launchapp()[pri:0, instance:nadeem.stratX@4470f8a6]" started-at="2025-07-08T15:23:30 IST" name="launchapp" finished-at="2025-07-08T15:23:47 IST" duration-ms="17300" status="PASS">
+    <test started-at="2025-09-03T12:35:25 IST" name="Default test" finished-at="2025-09-03T12:35:53 IST" duration-ms="27620">
+      <class name="stepDefinations.TestRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:stepDefinations.TestRunner@2a266d09]" started-at="2025-09-03T12:35:25 IST" name="setUpClass" finished-at="2025-09-03T12:35:26 IST" duration-ms="680" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@47b11ec7]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- launchapp -->
-        <test-method signature="Verify_user_login_and_clicks_on_RDD()[pri:1, instance:nadeem.stratX@4470f8a6]" started-at="2025-07-08T15:23:47 IST" name="Verify_user_login_and_clicks_on_RDD" finished-at="2025-07-08T15:24:18 IST" duration-ms="30670" status="PASS">
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:stepDefinations.TestRunner@2a266d09]" started-at="2025-09-03T12:35:26 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-03T12:35:52 IST" duration-ms="26872" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["To check Portfolio bottom bar menu"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Regression tests"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.NullPointerException">
+            <message>
+              <![CDATA[Cannot invoke "org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)" because "this.searchContext" is null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)" because "this.searchContext" is null
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy22.click(Unknown Source)
+at stepDefinations.steps.user_clicks_on_home_tab(steps.java:64)
+at ✽.User clicks on home tab(file:///D:/Mo%20Trading%20Automation/MoAutomation/src/test/resources/features/Regression.feature:10)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Verify_user_login_and_clicks_on_RDD -->
-        <test-method signature="mainMethod()[pri:2, instance:nadeem.stratX@4470f8a6]" started-at="2025-07-08T15:24:18 IST" name="mainMethod" finished-at="2025-07-08T15:26:15 IST" duration-ms="117408" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[<h3>Execution Report</h3>]]>
-            </line>
-            <line>
-              <![CDATA[<table border='1' style='border-collapse: collapse; width: 75%; text-align: center;'>]]>
-            </line>
-            <line>
-              <![CDATA[<tr><th>Sr. No</th><th>Test Case</th><th>Status</th><th>Time Taken (ms)</th></tr>]]>
-            </line>
-            <line>
-              <![CDATA[<tr><td>1</td><td>StatX Tab Redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>1512</td></tr>]]>
-            </line>
-            <line>
-              <![CDATA[<tr><td>2</td><td>Strategy Trade details Hide Icon</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>193</td></tr>]]>
-            </line>
-            <line>
-              <![CDATA[<tr><td>3</td><td>Strategy Trade Summary close Dropdown</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>23003</td></tr>]]>
-            </line>
-            <line>
-              <![CDATA[<tr><td>4</td><td>Strategy Trade Summary open Dropdown</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>1492</td></tr>]]>
-            </line>
-            <line>
-              <![CDATA[<tr><td>5</td><td>Subscribed Strategy Trade Details</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>8039</td></tr>]]>
-            </line>
-            <line>
-              <![CDATA[<tr><td>6</td><td>Popular Strategy View All</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>7444</td></tr>]]>
-            </line>
-            <line>
-              <![CDATA[<tr><td>7</td><td>Strategies Bottom Bar redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>5667</td></tr>]]>
-            </line>
-            <line>
-              <![CDATA[<tr><td>8</td><td>SX Trades Bottom Bar redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>4462</td></tr>]]>
-            </line>
-            <line>
-              <![CDATA[<tr><td>9</td><td>SX History Bottom Bar redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>170</td></tr>]]>
-            </line>
-            <line>
-              <![CDATA[<tr><td>10</td><td>StratX Explore Bottom Bar redirection</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>2152</td></tr>]]>
-            </line>
-            <line>
-              <![CDATA[<tr><td>11</td><td>Premium Strategies bottom View All</td><td style='background-color: green;color: white; font-weight: bold;'>Pass</td><td>2638</td></tr>]]>
-            </line>
-            <line>
-              <![CDATA[</table>]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- mainMethod -->
-        <test-method is-config="true" signature="Verify_user_kills_app()[pri:0, instance:nadeem.stratX@4470f8a6]" started-at="2025-07-08T15:26:15 IST" name="Verify_user_kills_app" finished-at="2025-07-08T15:26:16 IST" duration-ms="902" status="PASS">
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:stepDefinations.TestRunner@2a266d09]" started-at="2025-09-03T12:35:52 IST" name="tearDownClass" finished-at="2025-09-03T12:35:53 IST" duration-ms="25" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Verify_user_kills_app -->
-      </class> <!-- nadeem.stratX -->
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- stepDefinations.TestRunner -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -29,7 +29,7 @@ public class Portfolio {
 	@FindBy(xpath = "//android.widget.Button[@content-desc=\"Z-A\"]")
 	public WebElement sortZA;
 	
-	@FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.view.View[3]/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ImageView[1]")
+	@FindBy(xpath = "(//android.widget.ImageView)[6]")
 	public WebElement kababmenu;
 	
 	@FindBy(xpath = "//android.webkit.WebView")
@@ -57,6 +57,9 @@ public class Portfolio {
 	public WebElement hazoorSearchResult;
 
 	@FindBy(xpath = "//android.widget.EditText")
+	public WebElement searchbox;
+	
+	@FindBy(xpath = "(//android.widget.ImageView)[7]")
 	public WebElement searchtextbox;
 
 	@FindBy(xpath = "(//android.widget.ImageView)[7]")
