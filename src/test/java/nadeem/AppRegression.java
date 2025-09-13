@@ -43,6 +43,7 @@ import pageobjects.Watchlist;
 import utils.Commons;
 
 public class AppRegression {
+	// AppiumDriver driver;
 	AndroidDriver Driver;
 	String status;
 	ExtentReports extent;
@@ -63,35 +64,35 @@ public class AppRegression {
 	@BeforeTest
 	public void launchapp() throws MalformedURLException, IOException, InterruptedException {
 		System.out.println("Initializing Appium...");
-
+		// this.driver = DriverFactory.getDriver();
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability("platformName", "Android");
 		capabilities.setCapability("platformVersion", "13");
 		capabilities.setCapability("deviceName", "CPH2467");
 		capabilities.setCapability("udid", "97957054");
-		capabilities.setCapability("appPackage", Commons.getGlobalPropertiesValue("Rise_app_package_pilot"));
+		capabilities.setCapability("appPackage", Commons.getGlobalPropertiesValue("Rise_app_package"));
 		capabilities.setCapability("appActivity", Commons.getGlobalPropertiesValue("Rise_app_activity"));
 		capabilities.setCapability("automationName", "UiAutomator2");
 		capabilities.setCapability("autoGrantPermissions", true);
 		capabilities.setCapability("noReset", true);
 
 		Driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-		DriverFactory.addDriver(Driver);
+		// DriverFactory.addDriver(Driver);
 		System.out.println("App launch request sent. Waiting for verification...");
 		Driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		wait = new WebDriverWait(Driver, Duration.ofSeconds(10));
+
 		Thread.sleep(5000);
 	}
 
 	@Test(priority = 1)
 	public void Verify_user_login_and_clicks_on_RDD() throws InterruptedException, IOException {
 
-		LoginPage loginpage = new LoginPage(Driver);
+		LoginPage loginpage = new LoginPage(DriverFactory.getDriver());
 		test = extent.createTest("Login Test");
 		try {
 			if (loginpage.loginButton.isDisplayed()) {
 
-				// Manual Login
 				loginpage.loginButton.click();
 				Thread.sleep(1000);
 				loginpage.userID.click();
@@ -124,20 +125,21 @@ public class AppRegression {
 		}
 	}
 
-	@Test(priority = 2, enabled = true)
+	@Test(priority = 2, enabled = true, dependsOnMethods = "Verify_user_login_and_clicks_on_RDD")
 	public void App_Regression() throws IOException, InterruptedException {
 
 		logger.logTableStart("Execution Report");
 
 		Global_search_Result();
-		// Get_quote_fut_tab();
-		// Get_quote_opt_tab();
+		Get_quote_fut_tab();
+		Get_quote_opt_tab();
 		Get_quote_cash_tab();
 		Get_quote_Nse_switch_Delivery_buy();
 		Get_quote_Nse_switch_Delivery_Sell();
 		Get_quote_Bse_switch_Delivery_buy();
 		Get_quote_Bse_switch_Delivery_Sell();
 		Get_quote_charts();
+
 		Get_quote_optionchain();
 
 		NseShow50Depth();
@@ -155,6 +157,7 @@ public class AppRegression {
 		hompage_explore_portfolio_collapse();
 		Researchideaibutton();
 		IPO_button_CTA();
+
 		Research_Ideas_CTA();
 		IAP_CTA();
 		Bonds_CTA();
@@ -184,8 +187,8 @@ public class AppRegression {
 		internationalfund_CTA();
 		iponfoIbutton();
 		ipoviewall();
-		// ipobutton();
-		// Nfobutton();
+		ipobutton();
+		Nfobutton();
 		// Stocksipbutton();
 		// MFsipbutton();
 
@@ -226,12 +229,13 @@ public class AppRegression {
 
 	public void Global_search_Result() throws InterruptedException, IOException {
 		test = extent.createTest("Global Search Result");
-		HomePage homepage = new HomePage(Driver);
-		//homepage.logo.click();
+		HomePage homepage = new HomePage(DriverFactory.getDriver());
+		// homepage.logo.click();
 		homepage.Globalsearchbeforetap.click();
 		Thread.sleep(1000);
 		long startTime = System.currentTimeMillis();
-		// homepage.Globalsearchaftertap.sendKeys("Yes bank");
+		homepage.Globalsearchaftertap.click();
+		homepage.Globalsearchaftertap.sendKeys("Yes bank");
 		try {
 			Thread.sleep(6000);
 			WebElement searchresult = wait.until(ExpectedConditions.visibilityOf(homepage.Globalsearchresult));
@@ -372,6 +376,7 @@ public class AppRegression {
 		GetQuote getquote = new GetQuote(Driver);
 		OrderForm orderform = new OrderForm(Driver);
 		long startTime = System.currentTimeMillis();
+		Thread.sleep(1000);
 		getquote.nsebutton.click();
 		getquote.SellButton.click();
 		try {
@@ -841,8 +846,8 @@ public class AppRegression {
 		homepage.homeTabHeader.click();
 		ResusableMethods.verticalswipetillElement(Driver, homepage.tradinginvestment, 0, 5, 470, 1788, 590);
 		long startTime = System.currentTimeMillis();
-		homepage.IPO.click();
 		try {
+			homepage.IPO.click();
 			homepage.ipolist.isDisplayed();
 			status = "Pass";
 			test.pass("Homescreen IPO button Passed");

@@ -14,6 +14,36 @@ public class GetQuote {
 		PageFactory.initElements(Driver, this);
 	}
 	
+	@FindBy(xpath = "//android.view.View[@content-desc=\"Last Visited\"]")
+	public WebElement lastvisitedtab;
+	
+	@FindBy(xpath = "//android.view.View[@content-desc=\"Similar\"]")
+	public WebElement similartab;
+	
+	@FindBy(xpath = "//android.view.View[@content-desc=\"MF Invested\"]")
+	public WebElement MFinvested;
+	
+	@FindBy(xpath = "//android.view.View[@content-desc=\"News\"]")
+	public WebElement newstab;
+	
+	@FindBy(xpath = "//android.view.View[@content-desc=\"QVT\"]")
+	public WebElement qvttab;
+	
+	@FindBy(xpath = "//android.view.View[@content-desc=\"Analyst Rating\"]")
+	public WebElement analysttab;
+	
+	@FindBy(xpath = "//android.view.View[@content-desc=\"Corp. Actions\"]")
+	public WebElement CorpActionsTab;
+	
+	@FindBy(xpath = "//android.view.View[@content-desc=\"Stock Returns\"]")
+	public WebElement StockReturnsTab;
+	
+	@FindBy(xpath = "//android.view.View[@content-desc=\"Statistics\"]")
+	public WebElement StatisticsTab;
+	
+	@FindBy(xpath = "//android.view.View[@content-desc=\"Holdings\"]")
+	public WebElement HoldingsTab;
+	
 	@FindBy (xpath = "//android.widget.ImageView[@content-desc=\"Show 50 Depth\"]")
 	public WebElement NseShow50Depth;
 	

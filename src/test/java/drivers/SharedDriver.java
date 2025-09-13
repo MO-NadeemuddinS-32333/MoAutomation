@@ -1,6 +1,6 @@
 package drivers;
 
-import java.net.MalformedURLException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 
@@ -9,11 +9,12 @@ import org.testng.annotations.BeforeTest;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import utils.Commons;
 
 public class SharedDriver  {
 
-	String Execution = "BrowserStack"; // "BrowserStack" for browser stack & "RealDevice" for RealDevice
-	AndroidDriver ad;
+	String Execution = "ReadDevice"; // "BrowserStack" for browser stack & "RealDevice" for RealDevice
+	AndroidDriver driver;
 	String Rise_app_package = "com.mosl.mobile";
 	String Rise_app_activity = "mosl.supperfina.com.MainActivity";
 	String userId = "Y05120";
@@ -22,7 +23,7 @@ public class SharedDriver  {
 
 	
 	@BeforeTest
-	public void setup () throws MalformedURLException, InterruptedException {
+	public void setup () throws InterruptedException, IOException {
 		System.out.println("Initializing Appium...");
 
 		if ("RealDevice".equalsIgnoreCase(Execution)) {
@@ -31,13 +32,13 @@ public class SharedDriver  {
 			capabilities.setCapability("platformVersion", "13");
 			capabilities.setCapability("deviceName", "CPH2467");
 			capabilities.setCapability("udid", "97957054");
-			capabilities.setCapability("appPackage", Rise_app_package);
-			capabilities.setCapability("appActivity", Rise_app_activity);
+			capabilities.setCapability("appPackage", Commons.getGlobalPropertiesValue("Rise_app_package") );
+			capabilities.setCapability("appActivity", Commons.getGlobalPropertiesValue("Rise_app_activity"));
 			capabilities.setCapability("automationName", "UiAutomator2");
 			capabilities.setCapability("autoGrantPermissions", true);
 
-			ad = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-			DriverFactory.addDriver(ad);
+			driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+			DriverFactory.addDriver(driver);
 		}
 
 		else if ("BrowserStack".equalsIgnoreCase(Execution)) {
@@ -60,9 +61,9 @@ public class SharedDriver  {
 			capabilities.setCapability("autoGrantPermissions", true);
 			capabilities.setCapability("bstack:options", bstackOptions);
 
-			ad = new AndroidDriver(new URL("https://hub-cloud.browserstack.com/wd/hub"), capabilities);
+			driver = new AndroidDriver(new URL("https://hub-cloud.browserstack.com/wd/hub"), capabilities);
 
-			DriverFactory.addDriver(ad);
+			//DriverFactory.addDriver(ad);
 
 			Thread.sleep(500);
 

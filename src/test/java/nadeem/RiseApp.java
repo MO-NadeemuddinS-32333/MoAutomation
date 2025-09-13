@@ -23,7 +23,6 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
-import drivers.DriverFactory;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import pageobjects.GetQuote;
@@ -74,7 +73,7 @@ public class RiseApp {
 		capabilities.setCapability("noReset", true);
 
 		Driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-		DriverFactory.addDriver(Driver);
+//		DriverFactory.addDriver(Driver);
 		System.out.println("App launch request sent. Waiting for verification...");
 		Driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		wait = new WebDriverWait(Driver, Duration.ofSeconds(10));

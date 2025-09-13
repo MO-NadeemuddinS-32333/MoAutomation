@@ -14,6 +14,15 @@ public class Watchlist {
 		PageFactory.initElements(Driver, this);
 	}
 
+	@FindBy(xpath = "//android.view.View[contains(@content-desc,'Info')]")
+	public WebElement infobutton;
+	
+	@FindBy(xpath = "//android.widget.ImageView[contains(@content-desc,'Sort')]")
+	public WebElement sortbutton;
+	
+	@FindBy(xpath = "//android.view.View[@content-desc=\"WatchList 2\"]")
+	public WebElement watchlist2;
+	
 	@FindBy(xpath = "//android.view.View[@content-desc=\"No scrips in this watchlist\"]")
 	public WebElement noScripsInWatchlist;
 

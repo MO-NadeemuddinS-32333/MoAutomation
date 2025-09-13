@@ -1,4 +1,4 @@
-# Created at 2025-06-11T17:14:08.159
+# Created at 2025-09-08T14:58:18.556
 Boot Manifest-JAR contains absolute paths in classpath 'D:\Mo Trading Automation\MoAutomation\target\test-classes'
 Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
 'other' has different root

@@ -1,17 +1,22 @@
 package pageobjects;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Date;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.aventstack.extentreports.ExtentTest;
 
 import io.appium.java_client.android.AndroidDriver;
 
@@ -148,17 +153,16 @@ public class ResusableMethods {
 		Driver.perform(Collections.singletonList(tap));
 	}
 
-	public static void test(AndroidDriver Driver, WebDriverWait wait, ExtentTest test, String status,
-			WebElement element, String text) {
+	public static void captureScreenshot(AndroidDriver Driver, String text) {
 		try {
-			wait.until(ExpectedConditions.visibilityOf(element));
-			element.isDisplayed();
-			status = "Pass";
-			test.pass(text + " is Passed");
-		} catch (Exception e) {
-			status = "Fail";
-			test.fail(text + " is Failed");
-			test.info(e.getMessage());
+			File screenshot = ((TakesScreenshot) Driver).getScreenshotAs(OutputType.FILE);
+			String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			String filePath = "C:/Users/nadeemuddinsayed/Desktop/somu sir/" + text + "_" + timestamp + ".png";
+			FileUtils.copyFile(screenshot, new File(filePath));
+			System.out.println("Screenshot saved: " + filePath);
+		} catch (IOException e) {
+			System.out.println("Failed to capture screenshot: " + e.getMessage());
 		}
 	}
+
 }

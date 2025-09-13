@@ -11,7 +11,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import drivers.DriverFactory;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import pageobjects.HomePage;
@@ -40,7 +39,7 @@ public class Familyportfoliobenchamarking {
 			capabilities.setCapability("noReset", true);
 
 			Driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-			DriverFactory.addDriver(Driver);
+			//DriverFactory.addDriver(Driver);
 			Driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 			System.out.println("app launch succesfully");
 		}
@@ -69,7 +68,7 @@ public class Familyportfoliobenchamarking {
 			Driver = new AndroidDriver(new URL("https://hub-cloud.browserstack.com/wd/hub"), capabilities);
 			System.out.println("app launch succesfully");
 
-			DriverFactory.addDriver(Driver);
+			//DriverFactory.addDriver(Driver);
 
 			Thread.sleep(500);
 

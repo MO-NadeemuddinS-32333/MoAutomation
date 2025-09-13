@@ -2,7 +2,9 @@
 <suite name="Default suite">
   <test name="Default test">
     <classes>
-      <class name="cucumber.AppResgressionIII"/>
+      <class name="nadeem.AppRegression"/>
+      <class name="nadeem.AppRegressionII"/>
+      <class name="nadeem.MORiise"/>
     </classes>
   </test>
 </suite>

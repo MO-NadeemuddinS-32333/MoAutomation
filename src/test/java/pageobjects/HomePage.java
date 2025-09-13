@@ -64,7 +64,7 @@ public class HomePage {
 	@FindBy(xpath = "//android.widget.ImageView[@content-desc=\"Search\"]")
 	public WebElement Globalsearchbeforetap;
 
-	@FindBy(xpath = "//android.view.View[@content-desc=\"Yes bank, Search Scrips, Stocks, Companies…\"]/android.widget.EditText")
+	@FindBy(xpath = "//android.widget.EditText")
 	public WebElement Globalsearchaftertap;
 
 	@FindBy(xpath = "//android.view.View[contains(@content-desc,'YESBANK')]")
