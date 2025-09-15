@@ -2,6 +2,7 @@ package pageobjects;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -14,6 +15,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -215,5 +217,81 @@ public class ResusableMethods {
 		fis.close();
 
 		return cellValue;
+	}
+
+	public static void writeCellData(String excelPath, int sheetNumber, int rowNumber, int colNumber, String value)
+			throws IOException {
+		FileInputStream fis = new FileInputStream(excelPath);
+		Workbook workbook = new XSSFWorkbook(fis);
+		Sheet sheet = workbook.getSheetAt(sheetNumber);
+		Row row = sheet.getRow(rowNumber);
+		if (row == null) {
+			row = sheet.createRow(rowNumber);
+		}
+		Cell cell = row.getCell(colNumber);
+		if (cell == null) {
+			cell = row.createCell(colNumber);
+		}
+		cell.setCellValue(value);
+		fis.close();
+		FileOutputStream fos = new FileOutputStream(excelPath);
+		workbook.write(fos);
+		fos.close();
+		workbook.close();
+		System.out.println("Data written to Excel successfully.");
+	}
+
+	public static String getbelowCellValue(String excelPath, String key, int sheetNumber, int columnNumber)
+			throws IOException {
+		FileInputStream fis = new FileInputStream(excelPath);
+		Workbook workbook = WorkbookFactory.create(fis);
+		Sheet sheet = workbook.getSheetAt(sheetNumber);
+		String value = null;
+		for (int i = 0; i <= sheet.getLastRowNum(); i++) {
+			Row row = sheet.getRow(i);
+			if (row != null) {
+				Cell cell = row.getCell(columnNumber);
+				if (cell != null && cell.toString().equalsIgnoreCase(key)) {
+					Row nextRow = sheet.getRow(i + 1);
+					if (nextRow != null) {
+						Cell nextCell = nextRow.getCell(columnNumber);
+						if (nextCell != null) {
+							value = nextCell.toString();
+						}
+					}
+					break;
+				}
+			}
+		}
+		workbook.close();
+		fis.close();
+		return value;
+	}
+
+	public static String getAdjacentCellValue(String excelPath, String key, int sheetNumber, int columnNumber)
+			throws IOException {
+		FileInputStream fis = new FileInputStream(excelPath);
+		Workbook workbook = WorkbookFactory.create(fis);
+		Sheet sheet = workbook.getSheetAt(sheetNumber);
+		String result = null;
+
+		for (Row row : sheet) {
+			Cell cell = row.getCell(columnNumber);
+
+			if (cell != null) {
+				String cellValue = cell.toString().trim();
+
+				if (cellValue.equalsIgnoreCase(key)) {
+					Cell adjacentCell = row.getCell(columnNumber + 1);
+					if (adjacentCell != null) {
+						result = adjacentCell.toString();
+					}
+					break;
+				}
+			}
+		}
+		workbook.close();
+		fis.close();
+		return result;
 	}
 }
