@@ -1,6 +1,7 @@
 package pageobjects;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -9,6 +10,11 @@ import java.util.Collections;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
@@ -193,4 +199,21 @@ public class ResusableMethods {
 		Reporter.log("</table>", true);
 	}
 
+	public static String getCellData(String excelPath, int sheetNumber, int rowNumber, int colNumber)
+			throws IOException {
+
+		FileInputStream fis = new FileInputStream(excelPath);
+		Workbook workbook = new XSSFWorkbook(fis);
+		Sheet sheet = workbook.getSheetAt(sheetNumber);
+		Row row = sheet.getRow(rowNumber);
+		Cell cell = row.getCell(colNumber);
+		String cellValue = "";
+		if (cell != null) {
+			cellValue = cell.toString();
+		}
+		workbook.close();
+		fis.close();
+
+		return cellValue;
+	}
 }
