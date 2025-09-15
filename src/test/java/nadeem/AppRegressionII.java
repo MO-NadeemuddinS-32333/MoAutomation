@@ -7,7 +7,6 @@ import java.time.Duration;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Reporter;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -21,6 +20,7 @@ import pageobjects.LoginPage;
 import pageobjects.MfHomePage;
 import pageobjects.Portfolio;
 import pageobjects.ResusableMethods;
+import pageobjects.TableLogger;
 import utils.Commons;
 
 public class AppRegressionII {
@@ -48,7 +48,7 @@ public class AppRegressionII {
 		capabilities.setCapability("noReset", true);
 
 		Driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-		//DriverFactory.addDriver(Driver);
+		// DriverFactory.addDriver(Driver);
 		System.out.println("App launch request sent. Waiting for verification...");
 		Driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		wait = new WebDriverWait(Driver, Duration.ofSeconds(10));
@@ -93,7 +93,7 @@ public class AppRegressionII {
 
 	@Test(priority = 2)
 	public void mainMethod() throws InterruptedException {
-		logger.logTableStart("Execution Report");
+		ResusableMethods.logTableStart("Execution Report");
 
 		homeportfolioredirection();
 		edisredirection();
@@ -105,7 +105,7 @@ public class AppRegressionII {
 		homemfredirection();
 		editindices();
 
-		logger.logTableEnd();
+		ResusableMethods.logTableEnd();
 	}
 
 	public void homeportfolioredirection() {
@@ -121,7 +121,7 @@ public class AppRegressionII {
 			status = "Fail";
 		} finally {
 			long endTime = System.currentTimeMillis();
-			logger.logTableRow("Stocks Button homescreen Redirection", status, endTime - startTime);
+			ResusableMethods.logTableRow("Stocks Button homescreen Redirection", status, endTime - startTime);
 		}
 	}
 
@@ -137,7 +137,7 @@ public class AppRegressionII {
 		} finally {
 			long endTime = System.currentTimeMillis();
 			Driver.navigate().back();
-			logger.logTableRow("Authorised Sell EDIS Redirection", status, endTime - startTime);
+			ResusableMethods.logTableRow("Authorised Sell EDIS Redirection", status, endTime - startTime);
 		}
 
 	}
@@ -161,7 +161,7 @@ public class AppRegressionII {
 				portfolio.searchclose.click();
 				Thread.sleep(2000);
 			}
-			logger.logTableRow("Portfolio Script Search", status, endTime - startTime);
+			ResusableMethods.logTableRow("Portfolio Script Search", status, endTime - startTime);
 		}
 	}
 
@@ -176,7 +176,7 @@ public class AppRegressionII {
 			status = "Fail";
 		} finally {
 			long endTime = System.currentTimeMillis();
-			logger.logTableRow("Portfolio Gainers", status, endTime - startTime);
+			ResusableMethods.logTableRow("Portfolio Gainers", status, endTime - startTime);
 		}
 	}
 
@@ -192,7 +192,7 @@ public class AppRegressionII {
 		} finally {
 			long endTime = System.currentTimeMillis();
 			// Driver.navigate().back();
-			logger.logTableRow("Portfolio Losers", status, endTime - startTime);
+			ResusableMethods.logTableRow("Portfolio Losers", status, endTime - startTime);
 		}
 	}
 
@@ -209,7 +209,7 @@ public class AppRegressionII {
 			status = "Fail";
 		} finally {
 			long endTime = System.currentTimeMillis();
-			logger.logTableRow("Portfolio Sort Z-A", status, endTime - startTime);
+			ResusableMethods.logTableRow("Portfolio Sort Z-A", status, endTime - startTime);
 		}
 	}
 
@@ -227,7 +227,7 @@ public class AppRegressionII {
 		} finally {
 			long endTime = System.currentTimeMillis();
 			Driver.navigate().back();
-			logger.logTableRow("Portfolio Sort A-Z", status, endTime - startTime);
+			ResusableMethods.logTableRow("Portfolio Sort A-Z", status, endTime - startTime);
 		}
 	}
 
@@ -244,7 +244,7 @@ public class AppRegressionII {
 		} finally {
 			long endTime = System.currentTimeMillis();
 			Driver.navigate().back();
-			logger.logTableRow("MF Invest Button homescreen Redirection", status, endTime - startTime);
+			ResusableMethods.logTableRow("MF Invest Button homescreen Redirection", status, endTime - startTime);
 		}
 	}
 
@@ -263,44 +263,7 @@ public class AppRegressionII {
 		} finally {
 			long endTime = System.currentTimeMillis();
 			Driver.navigate().back();
-			logger.logTableRow("6 indices Edit Indices Error message", status, endTime - startTime);
-		}
-
-	}
-
-	// Helper Methods for Logging Tables
-	public class TableLogger {
-		private int rowCounter = 0; // To keep track of the serial number
-
-		// Start the table with a title
-		public void logTableStart(String tableName) {
-			Reporter.log("<h3>" + tableName + "</h3>", true);
-			Reporter.log("<table border='1' style='border-collapse: collapse; width: 75%; text-align: center;'>", true);
-			Reporter.log("<tr><th>Sr. No</th><th>Test Case</th><th>Status</th><th>Time Taken (ms)</th></tr>", true);
-		}
-
-		// Add a row to the table
-		public void logTableRow(String testCase, String status, long timeTaken) {
-			rowCounter++; // Increment the serial number
-
-			// Define the color and text styles based on the status
-			String statusColor = "";
-			String statusTextStyle = "color: white; font-weight: bold;";
-
-			if ("Fail".equalsIgnoreCase(status)) {
-				statusColor = "background-color: red;";
-			} else if ("Pass".equalsIgnoreCase(status)) {
-				statusColor = "background-color: green;";
-			}
-
-			// Create the row with the styled status cell
-			Reporter.log("<tr><td>" + rowCounter + "</td><td>" + testCase + "</td><td style='" + statusColor
-					+ statusTextStyle + "'>" + status + "</td><td>" + timeTaken + "</td></tr>", true);
-		}
-
-		// End the table
-		public void logTableEnd() {
-			Reporter.log("</table>", true);
+			ResusableMethods.logTableRow("6 indices Edit Indices Error message", status, endTime - startTime);
 		}
 
 	}

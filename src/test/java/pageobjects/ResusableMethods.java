@@ -17,6 +17,7 @@ import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
 
 import io.appium.java_client.android.AndroidDriver;
 
@@ -163,6 +164,33 @@ public class ResusableMethods {
 		} catch (IOException e) {
 			System.out.println("Failed to capture screenshot: " + e.getMessage());
 		}
+	}
+
+	private static int rowCounter = 0;
+
+	public static void logTableStart(String tableName) {
+		Reporter.log("<h3>" + tableName + "</h3>", true);
+		Reporter.log("<table border='1' style='border-collapse: collapse; width: 75%; text-align: center;'>", true);
+		Reporter.log("<tr><th>Sr. No</th><th>Test Case</th><th>Status</th><th>Time Taken (ms)</th></tr>", true);
+	}
+
+	public static void logTableRow(String testCase, String status, long timeTaken) {
+		rowCounter++;
+		String statusColor = "";
+		String statusTextStyle = "color: white; font-weight: bold;";
+
+		if ("Fail".equalsIgnoreCase(status)) {
+			statusColor = "background-color: red;";
+		} else if ("Pass".equalsIgnoreCase(status)) {
+			statusColor = "background-color: green;";
+		}
+
+		Reporter.log("<tr><td>" + rowCounter + "</td><td>" + testCase + "</td><td style='" + statusColor
+				+ statusTextStyle + "'>" + status + "</td><td>" + timeTaken + "</td></tr>", true);
+	}
+
+	public static void logTableEnd() {
+		Reporter.log("</table>", true);
 	}
 
 }
