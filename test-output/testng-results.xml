@@ -1,29 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="5" total="7" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-12T10:19:34 IST" name="Default suite" finished-at="2025-09-12T10:21:24 IST" duration-ms="110784">
+  <suite started-at="2025-09-15T18:32:16 IST" name="Default suite" finished-at="2025-09-15T18:32:18 IST" duration-ms="1364">
     <groups>
     </groups>
-    <test started-at="2025-09-12T10:19:34 IST" name="Default test" finished-at="2025-09-12T10:21:24 IST" duration-ms="110784">
-      <class name="nadeem.Elementtext">
-        <test-method is-config="true" signature="launchapp()[pri:0, instance:nadeem.Elementtext@e4487af]" started-at="2025-09-12T10:19:34 IST" name="launchapp" finished-at="2025-09-12T10:19:53 IST" duration-ms="19378" status="PASS">
+    <test started-at="2025-09-15T18:32:16 IST" name="Default test" finished-at="2025-09-15T18:32:18 IST" duration-ms="1364">
+      <class name="nadeem.DDFexceldatacell">
+        <test-method signature="celldataextraction()[pri:0, instance:nadeem.DDFexceldatacell@7770f470]" started-at="2025-09-15T18:32:16 IST" name="celldataextraction" finished-at="2025-09-15T18:32:18 IST" duration-ms="1308" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- launchapp -->
-        <test-method signature="Verify_user_login_and_clicks_on_RDD()[pri:1, instance:nadeem.Elementtext@e4487af]" started-at="2025-09-12T10:19:53 IST" name="Verify_user_login_and_clicks_on_RDD" finished-at="2025-09-12T10:20:18 IST" duration-ms="24662" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Verify_user_login_and_clicks_on_RDD -->
-        <test-method signature="portfoliokebabmenu()[pri:6, instance:nadeem.Elementtext@e4487af]" started-at="2025-09-12T10:20:18 IST" name="portfoliokebabmenu" finished-at="2025-09-12T10:21:24 IST" duration-ms="66685" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- portfoliokebabmenu -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:nadeem.Elementtext@e4487af]" started-at="2025-09-12T10:21:24 IST" name="tearDown" finished-at="2025-09-12T10:21:24 IST" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- nadeem.Elementtext -->
+        </test-method> <!-- celldataextraction -->
+      </class> <!-- nadeem.DDFexceldatacell -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

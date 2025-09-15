@@ -3,14 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="nadeem.Elementtext">
+      <class name="nadeem.DDFexceldatacell">
         <methods>
-          <include name="portfoliokebabmenu"/>
-          <include name="watchlistkebabmenu"/>
-          <include name="tearDown"/>
-          <include name="launchapp"/>
+          <include name="celldataextraction"/>
         </methods>
-      </class> <!-- nadeem.Elementtext -->
+      </class> <!-- nadeem.DDFexceldatacell -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
