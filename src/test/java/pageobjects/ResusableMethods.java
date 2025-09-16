@@ -234,20 +234,25 @@ public class ResusableMethods {
 		System.out.println(value + " is written to Excel successfully.......");
 	}
 
-	public static String getbelowCellValue(String excelPath, String key, int sheetNumber, int columnNumber)
+	public static String getBelowCellValue(String excelPath, String key, int sheetNumber, int rowIndex)
 			throws IOException {
-		FileInputStream fis = new FileInputStream(excelPath);
-		Workbook workbook = WorkbookFactory.create(fis);
-		Sheet sheet = workbook.getSheetAt(sheetNumber);
 		String value = null;
-		for (int i = 0; i <= sheet.getLastRowNum(); i++) {
-			Row row = sheet.getRow(i);
-			if (row != null) {
-				Cell cell = row.getCell(columnNumber);
+		try (FileInputStream fis = new FileInputStream(excelPath); Workbook workbook = WorkbookFactory.create(fis)) {
+			if (sheetNumber >= workbook.getNumberOfSheets()) {
+				throw new IllegalArgumentException("Invalid sheet index: " + sheetNumber);
+			}
+			Sheet sheet = workbook.getSheetAt(sheetNumber);
+			Row row = sheet.getRow(rowIndex);
+			if (row == null) {
+				throw new IllegalArgumentException("Row " + rowIndex + " is empty or does not exist.");
+			}
+			for (int j = 0; j < row.getLastCellNum(); j++) {
+				Cell cell = row.getCell(j);
 				if (cell != null && cell.toString().equalsIgnoreCase(key)) {
-					Row nextRow = sheet.getRow(i + 1);
+					Row nextRow = sheet.getRow(rowIndex + 1);
 					if (nextRow != null) {
-						Cell nextCell = nextRow.getCell(columnNumber);
+						Cell nextCell = nextRow.getCell(j);
+
 						if (nextCell != null) {
 							value = nextCell.toString();
 						}
@@ -256,9 +261,7 @@ public class ResusableMethods {
 				}
 			}
 		}
-		workbook.close();
-		fis.close();
-		System.out.println("value below " + key + " is: " + value);
+		System.out.println("Below cell value to Key " + key + " is: " + value);
 		return value;
 	}
 
@@ -286,7 +289,7 @@ public class ResusableMethods {
 		}
 		workbook.close();
 		fis.close();
-		System.out.println("Adjacent cell value to " + key + " is: " + result);
+		System.out.println("Adjacent cell value to Key " + key + " is: " + result);
 		return result;
 	}
 

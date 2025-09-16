@@ -12,14 +12,15 @@ public class aademo {
 		ResusableMethods.getCellData(path, 0, 3, 1);
 		System.out.println("========================");
 
-		String b = "maniyata";
-		ResusableMethods.writeCellData(path, 0, 4, 1, b);
+		/*
+		 * String b = "Kushboo"; ResusableMethods.writeCellData(path, 0, 4, 1, b);
+		 * System.out.println("========================");
+		 */
+
+		ResusableMethods.getBelowCellValue(path, "O", 0, 3);
 		System.out.println("========================");
 
-		ResusableMethods.getbelowCellValue(path, "Maqsood", 0, 1);
-		System.out.println("========================");
-
-		ResusableMethods.getAdjacentCellValue(path, "atmaram", 0, 0);
+		ResusableMethods.getAdjacentCellValue(path, "I", 0, 0);
 		System.out.println("========================");
 		
 	}
