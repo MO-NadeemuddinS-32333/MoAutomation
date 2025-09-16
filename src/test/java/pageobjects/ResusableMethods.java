@@ -56,13 +56,10 @@ public class ResusableMethods {
 		boolean elementFound = false;
 		while (!elementFound && swipeCount < maxSwipes) {
 			try {
-				// Check if the element is present
 				WebElement element = new WebDriverWait(Driver, Duration.ofSeconds(1))
 						.until(ExpectedConditions.visibilityOf(ElementToFind));
 				elementFound = element.isDisplayed();
 			} catch (Exception e) {
-				// Element not found yet, perform a swipe Create swipe action
-
 				PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
 				Sequence swipe = new Sequence(finger, 1)
 						.addAction(finger
@@ -88,12 +85,10 @@ public class ResusableMethods {
 
 		while (!elementFound && swipeCount < maxSwipes) {
 			try {
-				// Check if the element is present
 				WebElement element = new WebDriverWait(Driver, Duration.ofSeconds(1))
 						.until(ExpectedConditions.visibilityOf(ElementToFind));
 				elementFound = element.isDisplayed();
 			} catch (Exception e) {
-				// Element not found yet, perform a swipe
 				PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
 				Sequence swipe = new Sequence(finger, 1)
 						.addAction(finger
@@ -128,19 +123,15 @@ public class ResusableMethods {
 	}
 
 	public static void longpressElement(AndroidDriver Driver, WebElement elementtolongpress) {
-		// Get element location
 		int elementX = elementtolongpress.getRect().getX() + (elementtolongpress.getRect().getWidth() / 2);
 		int elementY = elementtolongpress.getRect().getY() + (elementtolongpress.getRect().getHeight() / 2);
-		// Create a PointerInput instance
 		PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
-		// Create a sequence for the long press
 		Sequence longPress = new Sequence(finger, 1)
 				.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), elementX, elementY))
 				.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg())) // Press down
 				.addAction(finger.createPointerMove(Duration.ofMillis(2000), PointerInput.Origin.viewport(), elementX,
 						elementY)) // Hold for 2 seconds
 				.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg())); // Release
-		// Perform the long press
 		Driver.perform(Arrays.asList(longPress));
 
 	}
@@ -149,6 +140,7 @@ public class ResusableMethods {
 		textbox.click();
 		textbox.clear();
 		textbox.sendKeys(text);
+		Driver.hideKeyboard();
 	}
 
 	public static void longPressWithActions(AndroidDriver Driver, int x, int y, int time) throws InterruptedException {
@@ -216,6 +208,7 @@ public class ResusableMethods {
 		workbook.close();
 		fis.close();
 
+		System.out.println("Cell Data is: " + cellValue);
 		return cellValue;
 	}
 
@@ -238,7 +231,7 @@ public class ResusableMethods {
 		workbook.write(fos);
 		fos.close();
 		workbook.close();
-		System.out.println("Data written to Excel successfully.");
+		System.out.println(value + " is written to Excel successfully.......");
 	}
 
 	public static String getbelowCellValue(String excelPath, String key, int sheetNumber, int columnNumber)
@@ -265,6 +258,7 @@ public class ResusableMethods {
 		}
 		workbook.close();
 		fis.close();
+		System.out.println("value below " + key + " is: " + value);
 		return value;
 	}
 
@@ -292,6 +286,8 @@ public class ResusableMethods {
 		}
 		workbook.close();
 		fis.close();
+		System.out.println("Adjacent cell value to " + key + " is: " + result);
 		return result;
 	}
+
 }

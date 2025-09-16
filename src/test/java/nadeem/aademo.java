@@ -8,16 +8,19 @@ public class aademo {
 
 	public static void main(String[] args) throws IOException {
 		String path = "C:\\Users\\nadeemuddinsayed\\Desktop\\somu sir\\asder.xlsx";
-		String a = ResusableMethods.getCellData(path, 0, 3, 1);
-		System.out.println(a);
 
-		String b = "Nadeem muntaha anu";
-		ResusableMethods.writeCellData(path, 0, 3, 3, b);
+		ResusableMethods.getCellData(path, 0, 3, 1);
+		System.out.println("========================");
 
-		String c = ResusableMethods.getbelowCellValue(path, "Bharat", 0, 0);
-		System.out.println(c);
+		String b = "maniyata";
+		ResusableMethods.writeCellData(path, 0, 4, 1, b);
+		System.out.println("========================");
 
-		String d = ResusableMethods.getAdjacentCellValue(path, "atmaram", 0, 0);
-		System.out.println(d);
+		ResusableMethods.getbelowCellValue(path, "Maqsood", 0, 1);
+		System.out.println("========================");
+
+		ResusableMethods.getAdjacentCellValue(path, "atmaram", 0, 0);
+		System.out.println("========================");
+		
 	}
 }
