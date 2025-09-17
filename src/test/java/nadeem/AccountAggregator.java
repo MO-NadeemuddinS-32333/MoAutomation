@@ -48,7 +48,7 @@ public class AccountAggregator {
 		capabilities.setCapability("noReset", true);
 
 		Driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-		//DriverFactory.addDriver(Driver);
+		// DriverFactory.addDriver(Driver);
 		System.out.println("App launch request sent. Waiting for verification...");
 		Driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		wait = new WebDriverWait(Driver, Duration.ofSeconds(10));
@@ -91,7 +91,7 @@ public class AccountAggregator {
 		}
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 2, enabled = false)
 	public void accountmainmethod() {
 		logger.logTableStart("Execution Report");
 
@@ -103,6 +103,12 @@ public class AccountAggregator {
 		upstox();
 
 		logger.logTableEnd();
+	}
+
+	@Test(priority = 3, enabled = true)
+	public void activity() {
+		System.out.println(Driver.currentActivity());
+
 	}
 
 	public void angeltest() {
@@ -119,7 +125,9 @@ public class AccountAggregator {
 		} finally {
 			long endTime = System.currentTimeMillis();
 			logger.logTableRow("Angel one Broker", status, endTime - startTime);
+
 		}
+
 	}
 
 	public void growwtest() {

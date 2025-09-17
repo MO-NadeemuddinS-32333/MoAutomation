@@ -3,11 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="nadeem.DDFexceldatacell">
+      <class name="nadeem.testuiautomator">
         <methods>
-          <include name="celldataextraction"/>
+          <include name="getCurrentActivity"/>
+          <include name="initializeDriver"/>
         </methods>
-      </class> <!-- nadeem.DDFexceldatacell -->
+      </class> <!-- nadeem.testuiautomator -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

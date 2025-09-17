@@ -154,11 +154,11 @@ public class ResusableMethods {
 		Driver.perform(Collections.singletonList(tap));
 	}
 
-	public static void captureScreenshot(AndroidDriver Driver, String text) {
+	public static void captureScreenshot(AndroidDriver Driver, String path, String testcasename) {
 		try {
 			File screenshot = ((TakesScreenshot) Driver).getScreenshotAs(OutputType.FILE);
 			String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
-			String filePath = "C:/Users/nadeemuddinsayed/Desktop/somu sir/" + text + "_" + timestamp + ".png";
+			String filePath = path + testcasename + "_" + timestamp + ".png";
 			FileUtils.copyFile(screenshot, new File(filePath));
 			System.out.println("Screenshot saved: " + filePath);
 		} catch (IOException e) {

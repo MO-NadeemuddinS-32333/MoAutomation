@@ -2,16 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-15T18:32:16 IST" name="Default suite" finished-at="2025-09-15T18:32:18 IST" duration-ms="1364">
+  <suite started-at="2025-09-17T11:37:36 IST" name="Default suite" finished-at="2025-09-17T11:38:01 IST" duration-ms="24887">
     <groups>
     </groups>
-    <test started-at="2025-09-15T18:32:16 IST" name="Default test" finished-at="2025-09-15T18:32:18 IST" duration-ms="1364">
-      <class name="nadeem.DDFexceldatacell">
-        <test-method signature="celldataextraction()[pri:0, instance:nadeem.DDFexceldatacell@7770f470]" started-at="2025-09-15T18:32:16 IST" name="celldataextraction" finished-at="2025-09-15T18:32:18 IST" duration-ms="1308" status="PASS">
+    <test started-at="2025-09-17T11:37:36 IST" name="Default test" finished-at="2025-09-17T11:38:01 IST" duration-ms="24887">
+      <class name="nadeem.testuiautomator">
+        <test-method is-config="true" signature="initializeDriver()[pri:0, instance:nadeem.testuiautomator@192c3f1e]" started-at="2025-09-17T11:37:36 IST" name="initializeDriver" finished-at="2025-09-17T11:37:49 IST" duration-ms="12928" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- celldataextraction -->
-      </class> <!-- nadeem.DDFexceldatacell -->
+        </test-method> <!-- initializeDriver -->
+        <test-method signature="getCurrentActivity()[pri:0, instance:nadeem.testuiautomator@192c3f1e]" started-at="2025-09-17T11:37:49 IST" name="getCurrentActivity" finished-at="2025-09-17T11:38:01 IST" duration-ms="11914" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getCurrentActivity -->
+      </class> <!-- nadeem.testuiautomator -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
