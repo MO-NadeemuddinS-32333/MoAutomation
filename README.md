@@ -47,8 +47,6 @@ Update device capabilities in `config.properties`:
 ```properties
 Rise_app_package=com.mosl.mobile
 Rise_app_activity=com.mosl.mobile.MainActivity
-userId=YOUR_USER_ID
-password=YOUR_PASSWORD
 ```
 
 ### Driver Configuration
